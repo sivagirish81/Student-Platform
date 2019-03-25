@@ -1,0 +1,78 @@
+<html>
+	<head>
+		<title>Home</title>
+		<style>
+			.Mylister{
+					background-color: black;
+					overflow: hidden;
+					}
+			.Mylister a {
+					float : left;
+					color : green;
+					text-align: center;
+					padding: 14px 16px;
+					text-decoration: none;
+					font-size: 17px;
+					}
+			.Mylister a:hover {
+					background-color: gray;
+					color: black;
+					}
+			
+			.Mylister a.active {
+					background-color: #4CAF50;
+					color: black;
+					}
+			
+			.top-right-corner{
+					position:absolute;
+					top:14px;
+					right:17px;
+					}
+					
+			.flex-container {
+			  display: flex;
+			  align-items: stretch;
+			  background-color: #f1f1f1;
+			}
+
+			.flex-container > div {
+			  background-color: DodgerBlue;
+			  color: red;
+			  width: 100px;
+			  margin: 10px;
+			  text-align: center;
+			  line-height: 75px;
+			  font-size: 30px;
+			}
+					
+		</style>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="Mylister">
+				<a href="#" class="active">Home</a>
+				<a href="#">Attendance</a>
+				<a href="#">RESULTS</a>
+			</div>
+			<div class="top-right-corner">
+				<a href="#"><u>Logout</u></a>
+			</div>
+			<div class="flex-container">
+				<div style="flex-grow: 3">
+					<h2>Notifications</h2>
+					<p>Some text..</p>
+				</div>
+				<div style="flex-grow: 3">
+					<h2>Reminders</h2>
+					<p>Some text..</p>
+				</div>
+			</div>
+			
+		</div>
+	</body>
+</html>
+	
