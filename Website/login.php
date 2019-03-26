@@ -131,7 +131,7 @@
                 <input id="submit_login" type="submit" class="btn btn-primary" value="Login" ><br><br>
                 <span class="help-block" style="color:red"><?php echo $err; ?></span>
             </div>
-            <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+            
         </form>
     </div>   
     </div> 
