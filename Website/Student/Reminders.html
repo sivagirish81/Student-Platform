@@ -59,13 +59,23 @@
 			  padding: 20px;
 			  height:500px;
 			  text-align:center;
+			  overflow: auto;
+			  /*height: 100%;*/
 			}
 			
+			#test{
+			padding-bottom:500px;
+			}
 			.deco{
 				text-shadow: 2px 2px #FF0000;
 				color:black;
 				}
-					
+			
+			.form-group{
+				margin: auto;
+				width:30%;
+			}
+			
 		</style>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -74,8 +84,10 @@
 	<body>
 		<div class="Topper">
 			<div class="Mylister">
-					<a href="#" class="active">Home</a>
+					<a href="#">Home</a>
 					<a href="#">Attendance</a>
+					<a href="Reminders.html" class="active">Reminders</a>
+					<a href="#">Profile</a>
 					<a href="#">RESULTS</a>
 			</div>
 			<div class="top-right-corner">
@@ -86,10 +98,17 @@
 				<div class="Trans-Container">
 					<div class="Trans-content">
 						<h1 class="deco">Reminders</h1>
-						<p>Some Text...</p>
+						<p id="test">Some Text...</p>
+						<form action="Reminders.php" method="post">
+							<div class="form-group">
+								<input id="submit" type="submit" value="Insert/Remove Reminder">
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
+			
 		</div>
+		
 	</body>
 </html>
