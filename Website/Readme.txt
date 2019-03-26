@@ -11,3 +11,5 @@
 +Important Instructions
   -Make sure your Database name is student_platform
   -Make sure you have updated your database according to The latest sql File.
+  -Please Verify and remove all the redundant files.
+  -Keep only the necessary Files.
