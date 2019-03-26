@@ -1,7 +1,6 @@
 <?php
 	extract($_POST);
-
-
+    
 	$db = mysqli_connect("localhost:3306","root","","dbms_1");				//string,username,password,database name
     
     if($uname == "COE" && $pwd=="coe")
@@ -20,7 +19,7 @@
         {
             while($arr=mysqli_fetch_assoc($res))	
             {	
-                header("location:welcome_student.html");
+                header("location:Student/Student_Home.html");
             }
     
     
