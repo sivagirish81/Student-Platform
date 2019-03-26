@@ -1,0 +1,3 @@
+Login:
+ $stmt="select * from student where SSN=\"".$uname."\" and password = \"".$pwd."\";";
+$stmt="select * from teacher where initials=\"".$uname."\" and password = \"".$pwd."\";";
