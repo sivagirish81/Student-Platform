@@ -1,3 +1,5 @@
+
+
 <html>
 	<head>
 		<title>Home</title>
@@ -97,11 +99,11 @@
 			<div class="Notifier">
 				<div class="Trans-Container">
 					<div class="Trans-content">
-						<h1 class="deco">Reminders</h1>
-						<p id="test">Some Text...</p>
-						<form action="Reminders.php" method="post">
+						<h1 class="deco">Add or Remove Reminders</h1>
+						<p id="test"></p>
+						<form action="Reminders1.php" method="post">
 							<div class="form-group">
-								<input id="submit" type="submit" value="Display">
+								<input id="submit" type="textbox" name="Submitter" value="Insert/Remove Reminder">
 							</div>
 						</form>
 					</div>
@@ -109,6 +111,36 @@
 			</div>
 			
 		</div>
+		<?php
+	session_start();
+	if(!isset($_SESSION["uname"])){
+		echo "Sorry, Please login and use this page";
+		exit;
+		}
+	
+	extract($_POST);
+
+
+	$db = mysqli_connect("localhost:3306","root","","student_platform");
+
+	#echo $_SESSION["uname"];
+
+	$stmt="select Reminders from student where SSN=\"".$_SESSION["uname"]."\";";		//sql query
+   
+    $res = mysqli_query($db,$stmt);				//query object
+
+    if($res && mysqli_num_rows($res)==1)				//atleast one row and only one row
+        {
+            while($arr=mysqli_fetch_assoc($res))	
+            {	
+                echo "<script type='text/javascript'>
+                		var x=document.querySelector('#test');
+                		x.innerHTML="."\"".$arr['Reminders']."\"".";
+                	</script>";
+            }
+         }
+
+?>
 		
 	</body>
 </html>

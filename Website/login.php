@@ -1,7 +1,7 @@
 <?php
 	extract($_POST);
     
-	$db = mysqli_connect("localhost:3306","root","","dbms_1");				//string,username,password,database name
+	$db = mysqli_connect("localhost:3306","root","","student_platform");				//string,username,password,database name
     
     if($uname == "COE" && $pwd=="coe")
     {
