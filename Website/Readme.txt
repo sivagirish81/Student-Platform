@@ -3,3 +3,7 @@
 +Teacher Uses initials
 +COE uses coe id
 +Make Sure to put all pictures inside the same folder.
++I finished the part where the reminders get displayed.
++All that is left is Addition and Removal of reminders.
++Which is really tricky and I am tring to find out what to do.
++If I get that it will solve a huge problem for both Student as well as teacher.
