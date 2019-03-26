@@ -3,32 +3,59 @@
 
 
 	$db = mysqli_connect("localhost:3306","root","","dbms_1");				//string,username,password,database name
-	$stmt="select * from student where SSN=\"".$uname."\" and password = \"".$pwd."\";";		//sql query
     
+    if($uname == "COE" && $pwd=="coe")
+    {
+        header("location:welcome_coe.html");
+    }
+    else if(is_numeric(substr($uname,-1))) //check if last character is number. If it is - student else teacher
+    {
+        $stmt="select * from student where SSN=\"".$uname."\" and password = \"".$pwd."\";";		//sql query
+   
+        $res = mysqli_query($db,$stmt);				//query object
+
+        $err="";
+        
+        if($res && mysqli_num_rows($res)==1)				//atleast one row and only one row
+        {
+            while($arr=mysqli_fetch_assoc($res))	
+            {	
+                header("location:welcome_student.html");
+            }
+    
+    
+            session_start();								//start session name
+            $_SESSION["uname"]=$uname;
+        
+        }
+        else
+            $err="Login credentials Incorrect. Please try again";   
+    }
+    else
+    {
+        $stmt="select * from teacher where initials=\"".$uname."\" and password = \"".$pwd."\";";
+
+        $res = mysqli_query($db,$stmt);				//query object
+
+        $err="";
+        
+        if($res && mysqli_num_rows($res)==1)				//atleast one row and only one row
+        {
+            while($arr=mysqli_fetch_assoc($res))	
+            {	
+                header("location:welcome_teacher.html");
+            }
+    
+    
+            session_start();								//start session name
+            $_SESSION["uname"]=$uname;
+        
+        }
+        else
+            $err="Login credentials Incorrect. Please try again";
+    }
 
 
-    //make if else statements for teacher, coe
-	
-	$res = mysqli_query($db,$stmt);				//query object
-	
-	
-
-	$err="";
-	
-	if($res && mysqli_num_rows($res)==1)				//atleast one row and only one row
-	{
-		while($arr=mysqli_fetch_assoc($res))	
-		{	
-			header("location:welcome.html");
-		}
-
-
-		session_start();								//start session name
-		$_SESSION["uname"]=$uname;
-	
-	}
-	else
-		$err="Login credentials Incorrect. Please try again";
 ?>
 <!DOCTYPE html>
 <html lang="en">
