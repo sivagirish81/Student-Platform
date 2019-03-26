@@ -100,10 +100,9 @@
 				<div class="Trans-Container">
 					<div class="Trans-content">
 						<h1 class="deco">Add or Remove Reminders</h1>
-						<p id="test"></p>
 						<form action="Reminders1.php" method="post">
 							<div class="form-group">
-								<input id="submit" type="textbox" name="Submitter" value="Insert/Remove Reminder">
+								<input id="test" type="textarea" name="Submitter" value="<?php echo $_SESSION['Submitter']?>">
 							</div>
 						</form>
 					</div>
@@ -112,35 +111,31 @@
 			
 		</div>
 		<?php
-	session_start();
-	if(!isset($_SESSION["uname"])){
-		echo "Sorry, Please login and use this page";
-		exit;
-		}
-	
-	extract($_POST);
+			session_start();
+			if(!isset($_SESSION["uname"])){
+				echo "Sorry, Please login and use this page";
+				exit;
+				}
+			
+			extract($_POST);
 
 
-	$db = mysqli_connect("localhost:3306","root","","student_platform");
+			$db = mysqli_connect("localhost:3306","root","","student_platform");
 
-	#echo $_SESSION["uname"];
+			#echo $_SESSION["uname"];
 
-	$stmt="select Reminders from student where SSN=\"".$_SESSION["uname"]."\";";		//sql query
-   
-    $res = mysqli_query($db,$stmt);				//query object
+			$stmt="select Reminders from student where SSN=\"".$_SESSION["uname"]."\";";		//sql query
+		   
+		    $res = mysqli_query($db,$stmt);				//query object
 
-    if($res && mysqli_num_rows($res)==1)				//atleast one row and only one row
-        {
-            while($arr=mysqli_fetch_assoc($res))	
-            {	
-                echo "<script type='text/javascript'>
-                		var x=document.querySelector('#test');
-                		x.innerHTML="."\"".$arr['Reminders']."\"".";
-                	</script>";
-            }
-         }
+		    if($res && mysqli_num_rows($res)==1)				//atleast one row and only one row
+		        {
+		            while($arr=mysqli_fetch_assoc($res))	
+		            {	
+		                $_SESSION['Submitter']=$arr['Reminders'];
+		            }
+		         }
 
-?>
-		
+		?>
 	</body>
 </html>
