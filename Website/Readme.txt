@@ -7,3 +7,7 @@
 +All that is left is Addition and Removal of reminders.
 +Which is really tricky and I am tring to find out what to do.
 +If I get that it will solve a huge problem for both Student as well as teacher.
+
++Important Instructions
+  -Make sure your Database name is student_platform
+  -Make sure you have updated your database according to The latest sql File.
