@@ -29,23 +29,6 @@
 					top:14px;
 					right:17px;
 					}
-					
-			.flex-container {
-			  display: flex;
-			  align-items: stretch;
-			  background-color: #f1f1f1;
-			  height:500px;
-			}
-
-			.flex-container > div {
-			  background-color: DodgerBlue;
-			  color: red;
-			  width: 100px;
-			  margin: 10px;
-			  text-align: center;
-			  line-height: 75px;
-			  font-size: 30px;
-			}
 			
 			.My-container
 			{
@@ -72,31 +55,27 @@
 			  bottom: 0;
 			  background: rgb(0, 0, 0); 
 			  background: rgba(0, 0, 0, 0.5); 		/*opacity = 0.5*/
-			  color: #f1f1f1;
 			  width: 100%;
 			  padding: 20px;
 			  height:500px;
 			  text-align:center;
+			  overflow: auto;
+			  /*height: 100%;*/
 			}
 			
-			.glow {
-				  font-size: 80px;
-				  color:lawngreen;
-				  text-align: center;
-				  -webkit-animation: glow 1s ease-in-out infinite alternate;
-				  -moz-animation: glow 1s ease-in-out infinite alternate;
-				  animation: glow 1s ease-in-out infinite alternate;
-				}
-
-			@-webkit-keyframes glow {
-			  from {
-				text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
-			  }
-			  to {
-				text-shadow: 0 0 20px #fff, 0 0 30px #21200, 0 0 40px #21200, 0 0 50px #21200, 0 0 60px #21200, 0 0 70px #21200, 0 0 80px #21200;
-			  }
+			#test{
+			padding-bottom:500px;
 			}
-					
+			.deco{
+				text-shadow: 2px 2px #FF0000;
+				color:black;
+				}
+			
+			.form-group{
+				margin: auto;
+				width:30%;
+			}
+			
 		</style>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -105,8 +84,10 @@
 	<body>
 		<div class="Topper">
 			<div class="Mylister">
-					<a href="#" class="active">Home</a>
+					<a href="#">Home</a>
 					<a href="#">Attendance</a>
+					<a href="Reminders.html" class="active">Reminders</a>
+					<a href="#">Profile</a>
 					<a href="#">RESULTS</a>
 			</div>
 			<div class="top-right-corner">
@@ -116,34 +97,18 @@
 			<div class="Notifier">
 				<div class="Trans-Container">
 					<div class="Trans-content">
-						<h1 class="glow">Notifications</h1>
-						<p>Some Text...</p>
+						<h1 class="deco">Reminders</h1>
+						<p id="test">Some Text...</p>
+						<form action="Reminders.php" method="post">
+							<div class="form-group">
+								<input id="submit" type="submit" value="Insert/Remove Reminder">
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
+			
 		</div>
+		
 	</body>
 </html>
-	
-	
-	<!--
-		<div id="BG">
-			<div class="My-container>
-				<div class="Mylister">
-					<a href="#" class="active">Home</a>
-					<a href="#">Attendance</a>
-					<a href="#">RESULTS</a>
-				</div>
-				<div class="top-right-corner">
-					<a href="#"><u>Logout</u></a>
-				</div>
-				
-				<div class="My-container">
-					<div class="Trans-Container" align="center">
-						<h2>Notifications</h2>
-						<p>Some text..</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	-->
