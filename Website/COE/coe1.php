@@ -22,9 +22,9 @@
         <div class="row">
   	
             <div class="col-sm-3" >Course <select name="course" form="selection-from"> <?php 
-                $sql = mysqli_query($db, "SELECT Course_Name FROM Course");
+                $sql = mysqli_query($db, "SELECT Course_id FROM Course");
                 while ($row = $sql->fetch_assoc()){?>
-                <option value="<?php echo $row['Course_Name']; ?>"><?php echo $row['Course_Name']; ?></option>
+                <option value="<?php echo $row['Course_id']; ?>"><?php echo $row['Course_id']; ?></option>
                 
                 <?php
             
