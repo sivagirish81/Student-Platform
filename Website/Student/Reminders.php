@@ -90,7 +90,7 @@
 					<a href="Attendance.php">Attendance</a>
 					<a href="Reminders.html" class="active">Reminders</a>
 					<a href="Profile.html">Profile</a>
-					<a href="Results.html">RESULTS</a>
+					<a href="Results.php">RESULTS</a>
 			</div>
 			<div class="top-right-corner">
 				<a href="#"><u>Logout</u></a>

@@ -9,7 +9,7 @@
 
 <html>
 	<head>
-		<title>Attendance</title>
+		<title>Results</title>
 		<style>
 			.Mylister{
 					background-color: black;
@@ -97,17 +97,17 @@
 					<table class="My-Table">
 					  <tr>
 						<th>COURSE ID</th>
-						<th>Attendance%</th>
-						<th>Teacher</th>
-						<th>Number Of Classes</th>
+						<th>ISA_1_Marks</th>
+						<th>ISA_2_Marks</th>
+						<th>SGPA</th>
 					  </tr>
 					 </table>
 					 <?php 
 					  	
-					  	$sql1=mysqli_query($db,"SELECT Course_ID FROM attendance where SSN=\"".$_SESSION['uname']."\";");
-					  	$sql2=mysqli_query($db,"SELECT Attendance FROM attendance where SSN=\"".$_SESSION['uname']."\";");
-					  	$sql=mysqli_query($db,"SELECT Teacher_Initials FROM attendance where SSN=\"".$_SESSION['uname']."\";");
-					  	$sql3=mysqli_query($db,"SELECT No_Of_Classes FROM attendance where SSN=\"".$_SESSION['uname']."\";");
+					  	$sql1=mysqli_query($db,"SELECT Course_ID FROM exam_department where SSN=\"".$_SESSION['uname']."\";");
+					  	$sql2=mysqli_query($db,"SELECT ISA_1_Marks FROM exam_department where SSN=\"".$_SESSION['uname']."\";");
+					  	$sql=mysqli_query($db,"SELECT ISA_2_Marks FROM exam_department where SSN=\"".$_SESSION['uname']."\";");
+					  	$sql3=mysqli_query($db,"SELECT SGPA FROM exam_department where SSN=\"".$_SESSION['uname']."\";");
 					  	while (($row1 = $sql1->fetch_assoc()) && ($row2 = $sql2->fetch_assoc()) && ($row = $sql->fetch_assoc()) && ($row3 = $sql3->fetch_assoc()))
 					  	{
 					  		echo "<script type='text/javascript'>
@@ -118,9 +118,9 @@
                 					var c3=t.insertCell(2);
                 					var c4=t.insertCell(3);
                 					c1.innerHTML=\"".$row1['Course_ID']."\";
-                					c2.innerHTML=\"".$row2['Attendance']."\";
-                					c3.innerHTML=\"".$row['Teacher_Initials']."\";
-                					c4.innerHTML=\"".$row3['No_Of_Classes']."\";</script>";
+                					c2.innerHTML=\"".$row2['ISA_1_Marks']."\";
+                					c3.innerHTML=\"".$row['ISA_2_Marks']."\";
+                					c4.innerHTML=\"".$row3['SGPA']."\";</script>";
                 					
                 					
                 				}
