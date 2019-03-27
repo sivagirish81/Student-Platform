@@ -1,5 +1,5 @@
 <?php
-    $db = mysqli_connect("localhost:3306","root","","dbms_1");
+    $db = mysqli_connect("localhost:3306","root","","student_platform");
     print_r ($_POST);
 ?>
 

@@ -88,11 +88,11 @@
 	<body>
 		<div class="Topper">
 			<div class="Mylister">
-					<a href="#">Home</a>
-					<a href="#">Attendance</a>
+					<a href="Student_Home.html">Home</a>
+					<a href="Attendance.html">Attendance</a>
 					<a href="Reminders.html" class="active">Reminders</a>
-					<a href="#">Profile</a>
-					<a href="#">RESULTS</a>
+					<a href="Profile.html">Profile</a>
+					<a href="Results.html">RESULTS</a>
 			</div>
 			<div class="top-right-corner">
 				<a href="#"><u>Logout</u></a>
@@ -102,86 +102,110 @@
 				<div class="Trans-Container">
 					<div class="Trans-content">
 						<h1 class="deco">Add or Remove Reminders</h1>
-						<form action="Reminders1.php" method="post">
+						<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 							<div class="form-group">
-								<input id="test" type="textarea" name="Submitter" value="Enter reminder no. to be removed or add reminders">
+								<input id="test" type="textarea" name="Submitter" value="">
 								<input id="testing" type="submit" name="tster" value="Update">
 							</div>
 						</form>
+						<?php
+							session_start();
+							if (!(isset($_SESSION['uname'])))
+							{
+								header("location:D:\SoftwareTools\Xampp\htdocs\Student-Platform\Website\login.html");
+							}
+							extract($_POST);
+							$string="";
+							$temp="";
+							$db = mysqli_connect("localhost:3306","root","","student_platform");
+							$i=0;
+							$brflag=0;
+							if (!($Submitter=="Nothing To be Reminded Off") && !($Submitter=="1") && !($Submitter=="Insert/remove Remainders") && !(strlen($Submitter)==1)&&(is_string($Submitter)))
+							{
+								echo "console.log('Hi')";
+								$stmt2="select Reminders from student where SSN=\"".$_SESSION["uname"]."\";";		//sql query
+		   						$res2 = mysqli_query($db,$stmt2);
+		   						if($res2 && mysqli_num_rows($res2)==1)				//atleast one row and only one row
+						        {
+			   						while($arr=mysqli_fetch_assoc($res2))	
+							            {	#echo "console.log('Hi')";
+							        		if ($arr['Reminders']=="Nothing To be Reminded Off")
+							        		{
+							        			$arr['Reminders']="";
+							        		}
+							        		if ($Submitter=="Nothing To be Reminded Off")
+							        		{
+							        			$Submitter="";
+							        		}
+							            	$string=$arr['Reminders'].$Submitter."<br\>";
+							            	$stmt3="update student set Reminders=\"".$string."\"where SSN=\"".$_SESSION['uname']."\"";
+							            	$res3=mysqli_query($db,$stmt3);
+							            }
+							     }
+
+
+							}
+							else if ($Submitter=="1" || is_numeric((int)$Submitter) || (int)$Submitter==1)
+							{
+								$stmt="select Reminders from student where SSN=\"".$_SESSION["uname"]."\";";		//sql query
+		   						$res = mysqli_query($db,$stmt);
+		   						if($res && mysqli_num_rows($res)==1)				//atleast one row and only one row
+						        {
+						            while($arr=mysqli_fetch_assoc($res))	
+						            {	
+						            	$string=$arr['Reminders'];
+						            	echo $string;
+						            	for ($i=0;$i<strlen($string);$i++)
+						                {
+						                	#echo $string;
+						                	if ($string[$i]==$Submitter)
+						                	{
+						                		for ($j=$i+1;$j<(strlen($string)-1);$j++)
+						                		{
+						                			
+						                			if ((is_numeric((int)$string[$j])&&$string[$j+1]=="."))
+						                			{
+						                				echo $string;
+						                				#$temp=substr($string,$i).substr($string,(-1*$j));
+						                				$temp="Nothing To be Reminded Off";
+						                				#echo $temp;
+						                				echo $i;
+						                				echo $j;
+						                				$stmt1="update student set Reminders=\"".$temp."\"where SSN=\"".$_SESSION['uname']."\"";
+						                				$res=mysqli_query($db,$stmt1);
+						                				$brflag=1;
+						                				break;
+						                			}
+						                			if ($brflag==1)
+							                		{
+							                			break;
+							                		}
+						                		}
+						                		if ($brflag==1)
+							                		{
+							                			break;
+							                		}
+						                	}
+						                	if ($brflag==1)
+							                		{
+							                			break;
+							                		}
+						                }
+									}
+								}
+							} 
+
+							if (isset($_POST['tster']))
+							{
+								header("location:Reminders.html");
+							}
+
+						?>
 					</div>
 				</div>
 			</div>
 			
 		</div>
-		<?php
-			session_start();
-			if(!isset($_SESSION["uname"])){
-				echo "Sorry, Please login and use this page";
-				exit;
-				}
-			
-			extract($_POST);
 
-
-			$db = mysqli_connect("localhost:3306","root","","student_platform");
-
-			#echo $_SESSION["uname"];
-			if (is_numeric($_POST['Submitter']))
-			{
-				$stmt="select Reminders from student where SSN=\"".$_SESSION["uname"]."\";";		//sql query
-		   
-			    $res = mysqli_query($db,$stmt);				//query object
-			    $string=" ";
-			    $brflag=0;
-			    if($res && mysqli_num_rows($res)==1)				//atleast one row and only one row
-			        {
-			            while($arr=mysqli_fetch_assoc($res))	
-			            {	
-			                for ($i=0;$i<strlen($arr['Reminders']);$i++)
-			                {
-			                	if ($arr['Reminders'][i]==$_SESSION['Submitter'])
-			                	{
-			                		for ($j=i;$j<(strlen($arr['Reminders'])-1);$j++)
-			                		{
-			                			if ((is_numeric($arr['Reminders'][j])&&$arr['Reminders'][j+1]=="."))
-			                			{
-			                				$temp=join('',(string)$arr['Reminders']);
-			                				$string=" ";
-			                				$brflag=1;
-			                			}
-			                			break;
-			                		}
-			                		if (brflag==1)
-			                		{
-			                			break;
-			                		}
-			                	}
-			                	if (brflag==1)
-			                		{
-			                			break;
-			                		}
-			                }
-			                $stmt1="insert into 'student'(Reminders) values (".$string.")";
-			                $res1 = mysqli_query($db,$stmt1);	
-			                if($res1 && mysqli_num_rows($res1)==1)				//atleast one row and only one row
-					        {
-					            while($arr1=mysqli_fetch_assoc($res1))	
-					            {	
-					                echo "<script type='text/javascript'>
-					                		var list = document.getElementsByClassName('form-group'); 
-											list.removeChild(list.childNodes[0]);
-											list.removeChild(list.childNodes[0]);
-					                		var x=document.querySelector('#test');
-					                		x.innerHTML="."\"".$arr1['Reminders']."\"".";
-					                	</script>";
-					            }
-					         }
- 
-
-			            }
-			         }
-			         if (isset($_POST['tster'].))
-				}
-		?>
 	</body>
 </html>

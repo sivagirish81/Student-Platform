@@ -86,11 +86,11 @@
 	<body>
 		<div class="Topper">
 			<div class="Mylister">
-					<a href="#">Home</a>
-					<a href="#">Attendance</a>
+					<a href="Student_Home.html">Home</a>
+					<a href="Attendance.html">Attendance</a>
 					<a href="Reminders.html" class="active">Reminders</a>
-					<a href="#">Profile</a>
-					<a href="#">RESULTS</a>
+					<a href="Profile.html">Profile</a>
+					<a href="Results.html">RESULTS</a>
 			</div>
 			<div class="top-right-corner">
 				<a href="#"><u>Logout</u></a>
@@ -103,7 +103,7 @@
 						<p id="test">Some Text...</p>
 						<form action="Reminders1.php" method="post">
 							<div class="form-group">
-								<input id="submit" type="submit" name="Submitter" value="Insert/Remove Reminder">
+								<input id="submit" type="submit" name="Submitter" value="Insert/remove Remainders">
 							</div>
 						</form>
 					</div>
@@ -135,7 +135,7 @@
             {	
                 echo "<script type='text/javascript'>
                 		var x=document.querySelector('#test');
-                		x.innerHTML="."\"".$arr['Reminders']."\"".";
+                		x.innerHTML=`<div>".$arr['Reminders']."</div>`;
                 	</script>";
             }
          }

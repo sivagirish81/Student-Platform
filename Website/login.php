@@ -5,7 +5,7 @@
     
     if($uname == "COE" && $pwd=="coe")
     {
-        header("location:welcome_coe.html");
+        header("location:COE/welcome_coe.php");
     }
     else if(is_numeric(substr($uname,-1))) //check if last character is number. If it is - student else teacher
     {
