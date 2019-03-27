@@ -66,7 +66,9 @@
 			}
 			
 			#test{
-			padding-bottom:500px;
+			padding-bottom:300px;
+			left:10px;
+			width:200%;
 			}
 			.deco{
 				text-shadow: 2px 2px #FF0000;
@@ -102,7 +104,8 @@
 						<h1 class="deco">Add or Remove Reminders</h1>
 						<form action="Reminders1.php" method="post">
 							<div class="form-group">
-								<input id="test" type="textarea" name="Submitter" value="<?php echo $_SESSION['Submitter']?>">
+								<input id="test" type="textarea" name="Submitter" value="Enter reminder no. to be removed or add reminders">
+								<input id="testing" type="submit" name="tster" value="Update">
 							</div>
 						</form>
 					</div>
@@ -123,19 +126,62 @@
 			$db = mysqli_connect("localhost:3306","root","","student_platform");
 
 			#echo $_SESSION["uname"];
-
-			$stmt="select Reminders from student where SSN=\"".$_SESSION["uname"]."\";";		//sql query
+			if (is_numeric($_POST['Submitter']))
+			{
+				$stmt="select Reminders from student where SSN=\"".$_SESSION["uname"]."\";";		//sql query
 		   
-		    $res = mysqli_query($db,$stmt);				//query object
+			    $res = mysqli_query($db,$stmt);				//query object
+			    $string=" ";
+			    $brflag=0;
+			    if($res && mysqli_num_rows($res)==1)				//atleast one row and only one row
+			        {
+			            while($arr=mysqli_fetch_assoc($res))	
+			            {	
+			                for ($i=0;$i<strlen($arr['Reminders']);$i++)
+			                {
+			                	if ($arr['Reminders'][i]==$_SESSION['Submitter'])
+			                	{
+			                		for ($j=i;$j<(strlen($arr['Reminders'])-1);$j++)
+			                		{
+			                			if ((is_numeric($arr['Reminders'][j])&&$arr['Reminders'][j+1]=="."))
+			                			{
+			                				$temp=join('',(string)$arr['Reminders']);
+			                				$string=" ";
+			                				$brflag=1;
+			                			}
+			                			break;
+			                		}
+			                		if (brflag==1)
+			                		{
+			                			break;
+			                		}
+			                	}
+			                	if (brflag==1)
+			                		{
+			                			break;
+			                		}
+			                }
+			                $stmt1="insert into 'student'(Reminders) values (".$string.")";
+			                $res1 = mysqli_query($db,$stmt1);	
+			                if($res1 && mysqli_num_rows($res1)==1)				//atleast one row and only one row
+					        {
+					            while($arr1=mysqli_fetch_assoc($res1))	
+					            {	
+					                echo "<script type='text/javascript'>
+					                		var list = document.getElementsByClassName('form-group'); 
+											list.removeChild(list.childNodes[0]);
+											list.removeChild(list.childNodes[0]);
+					                		var x=document.querySelector('#test');
+					                		x.innerHTML="."\"".$arr1['Reminders']."\"".";
+					                	</script>";
+					            }
+					         }
+ 
 
-		    if($res && mysqli_num_rows($res)==1)				//atleast one row and only one row
-		        {
-		            while($arr=mysqli_fetch_assoc($res))	
-		            {	
-		                $_SESSION['Submitter']=$arr['Reminders'];
-		            }
-		         }
-
+			            }
+			         }
+			         if (isset($_POST['tster'].))
+				}
 		?>
 	</body>
 </html>
