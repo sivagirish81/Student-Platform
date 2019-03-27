@@ -1,12 +1,17 @@
 <?php
 
     extract($_POST);
+    
+    $arr = explode(",",$required_attr);
 
-    $arr = explode(" ",$SSN);
     
+
+
     $db = mysqli_connect("localhost:3306","root","","dbms_1");
+  
+    $stmt = "SELECT  COURSE_ID, ISA_1_Marks, ISA_2_Marks, ESA_Marks, Scaling, SGPA, CGPA FROM exam_department where SSN='".$arr[0]."' and Course_id='".$arr[2]."' ;";
     
-    $sql = mysqli_query($db, "SELECT  COURSE_ID, ISA_1_Marks, ISA_2_Marks, ESA_Marks, Scaling, SGPA, CGPA FROM exam_department where SSN=\"".$arr[0]."\";" );    
+    $sql = mysqli_query($db, $stmt );    
 
     while ($row = $sql->fetch_assoc()){
         $ssn = $arr[0];
