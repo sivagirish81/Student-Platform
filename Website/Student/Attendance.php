@@ -1,3 +1,12 @@
+<?php
+	session_start();
+	if (!isset($_SESSION['uname']))
+	{
+		header("location:D:\SoftwareTools\Xampp\htdocs\Student-Platform\Website\login.html");
+	}
+    $db = mysqli_connect("localhost:3306","root","","student_platform");
+?>
+
 <html>
 	<head>
 		<title>Home</title>
@@ -40,8 +49,8 @@
 				padding: 8px;
 			}
 			
-			.My-Table tr:nth-child(even){background-color: #f2f2f2}
-			
+			.My-Table tr:nth-child(even){background-color: black;color:red;}
+			.My-Table tr:nth-child(odd){background-color: black;color:green;}
 			.My-Table th {
 				background-color: black;
 				color: red;
@@ -73,7 +82,7 @@
 		<div class="Topper">
 			<div class="Mylister">
 					<a href="Student_Home.html">Home</a>
-					<a href="Attendance.html" class="active">Attendance</a>
+					<a href="Attendance.php" class="active">Attendance</a>
 					<a href="Reminders.html">Reminders</a>
 					<a href="Profile.html">Profile</a>
 					<a href="Results.html">RESULTS</a>
@@ -88,13 +97,38 @@
 					<table class="My-Table">
 					  <tr>
 						<th>COURSE ID</th>
-						<th>COURSE NAME</th>
-						<th>No. Of Clases</th>
 						<th>Attendance%</th>
+						<th>Teacher</th>
+						<th>Number Of Classes</th>
 					  </tr>
-					</table>
+					 </table>
+					 <?php 
+					  	
+					  	$sql1=mysqli_query($db,"SELECT Course_ID FROM attendance where SSN=\"".$_SESSION['uname']."\";");
+					  	$sql2=mysqli_query($db,"SELECT Attendance FROM attendance where SSN=\"".$_SESSION['uname']."\";");
+					  	$sql=mysqli_query($db,"SELECT Teacher_Initials FROM attendance where SSN=\"".$_SESSION['uname']."\";");
+					  	$sql3=mysqli_query($db,"SELECT No_Of_Classes FROM attendance where SSN=\"".$_SESSION['uname']."\";");
+					  	while (($row1 = $sql1->fetch_assoc()) && ($row2 = $sql2->fetch_assoc()) && ($row = $sql->fetch_assoc()) && ($row3 = $sql3->fetch_assoc()))
+					  	{
+					  		echo "<script type='text/javascript'>
+                					var x=document.querySelector('.My-Table');
+                					var t=x.insertRow(1);
+                					var c1=t.insertCell(0);
+                					var c2=t.insertCell(1);
+                					var c3=t.insertCell(2);
+                					var c4=t.insertCell(3);
+                					c1.innerHTML=\"".$row1['Course_ID']."\";
+                					c2.innerHTML=\"".$row2['Attendance']."\";
+                					c3.innerHTML=\"".$row['Teacher_Initials']."\";
+                					c4.innerHTML=\"".$row3['No_Of_Classes']."\";</script>";
+                					
+                					
+                				}
+					  ?>
 				</div>	
 			</div>
 		</div>
 	</body>
 </html>
+
+

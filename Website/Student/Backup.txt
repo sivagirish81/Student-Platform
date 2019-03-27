@@ -71,4 +71,8 @@
 			         	
 			         }
 				}
-		?>
+		
+
+
+
+		<!--tr.innerHTML=`<tr><th>".$row1['Course_ID']."</th><th>".$row2['Attendance']."</th><th>".$row['Teacher_Initials']."</th><th>".$row3['No_Of_Classes']."</th></tr>`;x.appendChild(t)</script>";-->
