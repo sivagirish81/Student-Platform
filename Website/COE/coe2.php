@@ -28,7 +28,7 @@
 
             <div class="col-sm-6" >  <?php 
 
-                $stmt = "SELECT s.SSN, s.Name FROM Student as s, course_taken as ct, course as c where s.SEMESTER='".$_POST['semester']."' and s.Section ='". $_POST['section']."' and s.SSN=ct.SSn and c.course_name ='".$_POST['course']."'  and c.course_id = ct.course_id;";
+                $stmt = "SELECT s.SSN, s.Name FROM Student as s, course_taken as ct, course as c where s.SEMESTER='".$_POST['semester']."' and s.Section ='". $_POST['section']."' and s.SSN=ct.SSn and c.course_id ='".$_POST['course']."'  and c.course_id = ct.course_id;";
                 
                 $sql = mysqli_query($db, $stmt);
                
@@ -45,10 +45,9 @@
 
                     <button name="required_attr" value="<?php 
                 
-                echo $row['SSN']; ?>,<?php  echo $row['Name']; ?>,<?php  echo $_POST['course']; ?> "
-                type="submit"> <?php 
-                
-                echo $row['SSN']; ?> ,<?php  echo $row['Name']; ?> </button>
+                echo $row['SSN']; ?>,<?php  echo $row['Name']; ?> , <?php  echo $_POST['course']; ?> "
+                type="submit"> 
+                <pre> <?php  echo $row['SSN']; ?>         <?php  echo $row['Name']; ?></pre> </button>
 
                     <?php
             

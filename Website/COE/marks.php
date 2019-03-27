@@ -4,12 +4,10 @@
     
     $arr = explode(",",$required_attr);
 
-    
-
 
     $db = mysqli_connect("localhost:3306","root","","dbms_1");
   
-    $stmt = "SELECT  COURSE_ID, ISA_1_Marks, ISA_2_Marks, ESA_Marks, Scaling, SGPA, CGPA FROM exam_department where SSN='".$arr[0]."' and Course_id='".$arr[2]."' ;";
+    $stmt = "SELECT  COURSE_ID, ISA_1_Marks, ISA_2_Marks, ESA_Marks, Scaling, SGPA, CGPA FROM exam_department where SSN='".$arr[0]."' and Course_ID='".trim($arr[2])."' ;";
     
     $sql = mysqli_query($db, $stmt );    
 
@@ -46,17 +44,33 @@
   
   <div class="row">
     <div class="col-sm-3"></div>
-    <div class="col-sm-3" style="background-color:lavenderblush;">
-    <ul class="list-group">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Morbi leo risus</li>
-        <li class="list-group-item">Porta ac consectetur ac</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-    </ul>
+   
 
+
+    <div class="col-sm-3" > <ul  class="list-group"  > 
+            <li class="list-group-item" >ISA 1</li>
+            <li class="list-group-item" >ISA 2</li>
+            <li class="list-group-item" >ESA</li>
+            <li class="list-group-item" >Scaling</li>
+            <li class="list-group-item" >SGPA</li>
+            <li class="list-group-item" >CGPA</li>
+        </ul> 
     </div>
-    <div class="col-sm-3" style="background-color:lavender;">.col-sm-4</div>
+  
+    <div class="col-sm-3" >
+        <ul  class="list-group" > 
+            <li class="list-group-item" ><?php echo $isa1; ?></li>
+            <li class="list-group-item" ><?php echo $isa2; ?></li>
+            <li class="list-group-item" ><?php echo $esa; ?></li>
+            <li class="list-group-item" ><?php echo $scaling; ?></li>
+            <li class="list-group-item" ><?php echo $SGPA; ?></li>
+            <li class="list-group-item" ><?php echo $CGPA; ?></li>
+
+
+        </ul> 
+    </div>
+  
+  
   </div>
 </div>
 
