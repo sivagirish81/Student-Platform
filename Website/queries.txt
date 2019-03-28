@@ -1,3 +1,29 @@
 Login:
  $stmt="select * from student where SSN=\"".$uname."\" and password = \"".$pwd."\";";
 $stmt="select * from teacher where initials=\"".$uname."\" and password = \"".$pwd."\";";
+
+
+Student:
+@Reminders:
+	+Selecting
+	select Reminders from student where SSN=\"".$_SESSION["uname"]."\";
+	+Updating/Setting Reminders
+	$stmt3="update student set Reminders=\"".$string."\"where SSN=\"".$_SESSION['uname']."\"";
+	+Deleting Reminders
+	$stmt4="update student set Reminders=\"".$temp."\"where SSN=\"".$_SESSION['uname']."\"";
+
+@Profiler/Toppers PAge
+	+Merging of three tables (student,exam_department,phone_number) and checking whether CGPA>=9
+	SELECT DISTINCT stud.SSN,stud.NAME,exam_department.CGPA,phone_number.Mobile_Number FROM student stud INNER JOIN exam_department ON stud.SSN=exam_department.SSN INNER JOIN phone_number ON stud.SSN=phone_number.SSN where exam_department.CGPA>=9
+
+@Attendance(Self Explanatory)
+	+SELECT Course_ID FROM attendance where SSN=\"".$_SESSION['uname']."\";
+	+SELECT Attendance FROM attendance where SSN=\"".$_SESSION['uname']."\";
+	+SELECT Teacher_Initials FROM attendance where SSN=\"".$_SESSION['uname']."\";
+	+SELECT No_Of_Classes FROM attendance where SSN=\"".$_SESSION['uname']."\";
+
+@Results
+	+SELECT Course_ID FROM exam_department where SSN=\"".$_SESSION['uname']."\";
+	+SELECT ISA_1_Marks FROM exam_department where SSN=\"".$_SESSION['uname']."\";
+	+SELECT ISA_2_Marks FROM exam_department where SSN=\"".$_SESSION['uname']."\";
+	+SELECT SGPA FROM exam_department where SSN=\"".$_SESSION['uname']."\";
