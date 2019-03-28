@@ -29,6 +29,10 @@ Student:
 	+SELECT ISA_2_Marks FROM exam_department where SSN=\"".$_SESSION['uname']."\";
 	+SELECT SGPA FROM exam_department where SSN=\"".$_SESSION['uname']."\";
 
+Teacher:
+@Teacher1.php
+	+"update student set Notifications=\"".$content."\" where SSN=\"".$arr1['SSN']."\";";
+	
 1 Medium Level Query (Integrated With Backend)
 
 Medium:

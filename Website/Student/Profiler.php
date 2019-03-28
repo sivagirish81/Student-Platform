@@ -69,7 +69,7 @@
 <body class="container1">
     <div class="Topper">
             <div class="Mylister">
-                    <a href="Student_Home.html">Home</a>
+                    <a href="Student_Home.php">Home</a>
                     <a href="Attendance.php" >Attendance</a>
                     <a href="Reminders.html">Reminders</a>
                     <a href="Profiler.php" class="active">TOPPERS</a>
