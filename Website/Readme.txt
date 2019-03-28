@@ -18,3 +18,5 @@
 +I will Upload the latest sql Files.
 +Please Update it.
 
+
+-Please look at the queries.txt file if you are inserting any query hen make sure to document it in that file.
