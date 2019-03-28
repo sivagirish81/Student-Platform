@@ -76,3 +76,29 @@
 
 
 		<!--tr.innerHTML=`<tr><th>".$row1['Course_ID']."</th><th>".$row2['Attendance']."</th><th>".$row['Teacher_Initials']."</th><th>".$row3['No_Of_Classes']."</th></tr>`;x.appendChild(t)</script>";-->
+
+
+
+
+		var s=`
+                    <tr>
+                        <th>".$arr['NAME']."</th>
+                        <th>".$arr['SGPA']."</th>
+                        <th>".$arr['Mobile_Number']."</th>
+                      </tr>
+
+
+
+
+
+
+                  echo "<script type='text/javascript'>
+                    var d=document.querySelector('.My-Table');
+                    var t1=d.insertRow(1);
+                    var c11=t.insertCell(0);
+                    var c21=t.insertCell(1);
+                    var c31=t.insertCell(2);
+                    c11.innerHTML='NAME';
+                    c21.innerHTML='SGPA';
+                    c31.innerHTML='PHONE NUMBER';
+                </script>";

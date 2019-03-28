@@ -84,7 +84,7 @@
 					<a href="Student_Home.html">Home</a>
 					<a href="Attendance.php" class="active">Attendance</a>
 					<a href="Reminders.html">Reminders</a>
-					<a href="Profile.html">Profile</a>
+					<a href="Profile.html">TOPPERS</a>
 					<a href="Results.php">RESULTS</a>
 			</div>
 			<div class="top-right-corner">
