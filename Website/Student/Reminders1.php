@@ -91,7 +91,7 @@
 					<a href="Student_Home.html">Home</a>
 					<a href="Attendance.php">Attendance</a>
 					<a href="Reminders.html" class="active">Reminders</a>
-					<a href="Profile.html">Profile</a>
+					<a href="Profile.php">Profile</a>
 					<a href="Results.php">RESULTS</a>
 			</div>
 			<div class="top-right-corner">
@@ -120,7 +120,7 @@
 							$db = mysqli_connect("localhost:3306","root","","student_platform");
 							$i=0;
 							$brflag=0;
-							if (!($Submitter=="Nothing To be Reminded Off") && !($Submitter=="1") && !($Submitter=="Insert/remove Remainders") && !(strlen($Submitter)==1)&&(is_string($Submitter)))
+							if (!($Submitter=="1") && !($Submitter=="Nothing To be Reminded Off") && !($Submitter=="1") && !($Submitter=="Insert/remove Remainders") && !(strlen($Submitter)==1)&&(is_string($Submitter)))
 							{
 								echo "console.log('Hi')";
 								$stmt2="select Reminders from student where SSN=\"".$_SESSION["uname"]."\";";		//sql query
@@ -129,10 +129,12 @@
 						        {
 			   						while($arr=mysqli_fetch_assoc($res2))	
 							            {	#echo "console.log('Hi')";
+							        
 							        		if ($arr['Reminders']=="Nothing To be Reminded Off")
 							        		{
 							        			$arr['Reminders']="";
 							        		}
+
 							        		if ($Submitter=="Nothing To be Reminded Off")
 							        		{
 							        			$Submitter="";
@@ -142,7 +144,7 @@
 							            	$res3=mysqli_query($db,$stmt3);
 							            }
 							     }
-
+							     echo "console.log('Hi')";
 
 							}
 							else if ($Submitter=="1" || is_numeric((int)$Submitter) || (int)$Submitter==1)
