@@ -1,0 +1,42 @@
+1)Students eligible for cnr rao scholarship
+
+select Name
+from student as s
+where SSN in(
+		Select SSN
+		from Exam_Department as d
+		where SGPA>8.5
+		
+	    );
+
+2)all the materials given by anchor teachers
+
+ select Video_links,text_links
+ from (resources as R) Inner Join ( Course as C) ON R.course_id=C.course_id
+ where R.Teacher_init=C.Anchor and R.Teacher_init=C.Teacher_init;                   
+	
+3)Students having attendance lower than 75% in any subject
+ 
+ select distinct name
+ from student as s
+ where ssn in (
+		select ssn 
+		from Attendance as A
+		where A.Attendance<75);
+					
+4)number of people,various company pay more than 12lpa 
+
+ select company_name,count(*)
+ from placement
+ groupby company_name
+ having package>12;
+		
+5)contact the students parents if he/she has attendance lesser than 75% and cgpa<5
+
+select Student.name,Parent.name,Contact_number 
+  from (((student Natural Join parent) Natural Join Exam_Department) Natural Join Attendance as A)
+  where  A.Attendance<75 and CGPA<5;
+
+
+  
+  

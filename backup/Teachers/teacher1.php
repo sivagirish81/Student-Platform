@@ -13,7 +13,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<a href="Teacher_Home.html" class="active">Home</a>
+
 <div class="container">
   <h1 align="center" style="padding-bottom:50px">Send Notification</h1>
 
@@ -58,15 +58,11 @@
 		?>
 		</div>
 
-         <form id="selection-from" action="teacher2.php" method="post">
-		
+        <form id="selection-from" action="teacher2.php" method="post">
+        <input class="col-sm-3 btn btn-primary" " type=submit value="Apply">
 		<textarea rows="20" cols="40" name="content" >
 		</textarea>
 		
-		
-		<div>
-		<input class="col-sm-3 btn btn-primary" " type=submit value="Apply">
-		</div>
         </form>
 		
     </div>

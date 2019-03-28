@@ -21,12 +21,16 @@
         <div class="row">
   	
 
-        <div class="col-sm-3" >Semester <select name="semester" form="selection-from"> <?php 
-        $sql = mysqli_query($db, "SELECT DISTINCT Semester FROM Student");
+     
+
+    
+
+        <div class="col-sm-3" >Course Id <select name="section" form="selection-from"> <?php 
+        $sql = mysqli_query($db, "SELECT Course_id FROM course");
         while ($row = $sql->fetch_assoc()){
             
             ?>
-            <option value="<?php echo $row['Semester']; ?>"><?php echo $row['Semester']; ?></option>
+            <option value="<?php echo $row['Course_id']; ?>"><?php echo $row['Course_id']; ?></option>
             
             <?php
         
@@ -34,15 +38,13 @@
         ?>
         </select> 
         </div>
-
-    
-
-        <div class="col-sm-3" >Section <select name="section" form="selection-from"> <?php 
-        $sql = mysqli_query($db, "SELECT DISTINCT Section FROM Student");
+		
+		<div class="col-sm-3" >Initial <select name="init" form="selection-from"> <?php 
+        $sql = mysqli_query($db, "SELECT Initials FROM teacher");
         while ($row = $sql->fetch_assoc()){
             
             ?>
-            <option value="<?php echo $row['Section']; ?>"><?php echo $row['Section']; ?></option>
+            <option value="<?php echo $row['Initials']; ?>"><?php echo $row['Initials']; ?></option>
             
             <?php
         
@@ -58,15 +60,19 @@
 		?>
 		</div>
 
-         <form id="selection-from" action="teacher2.php" method="post">
+
+        <form id="selection-from" action="teacher4.php" method="post">
+        <br>
+		<br>
+		<input type="text" name="content1" size="50" maxlength="200"\>
+		<br>
+		<br>
+		<br>
+		<input type="text" name="content2" size="50" maxlength="200"\>
+		<br>
+		<br>
+		<input class="col-sm-3 btn btn-primary" " type=submit value="Apply"\>
 		
-		<textarea rows="20" cols="40" name="content" >
-		</textarea>
-		
-		
-		<div>
-		<input class="col-sm-3 btn btn-primary" " type=submit value="Apply">
-		</div>
         </form>
 		
     </div>

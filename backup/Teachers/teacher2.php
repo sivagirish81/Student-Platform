@@ -2,6 +2,9 @@
     $db = mysqli_connect("localhost:3306","root","","student_platform");
 ?>
 
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +16,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<a href="Teacher_Home.html" class="active">Home</a>
+
 <div class="container">
   <h1 align="center" style="padding-bottom:50px">Send Notification</h1>
 
@@ -58,17 +61,29 @@
 		?>
 		</div>
 
-         <form id="selection-from" action="teacher2.php" method="post">
-		
+        <form id="selection-from" action="teacher2.php" method="post">
+        <input class="col-sm-3 btn btn-primary" " type=submit value="Apply">
 		<textarea rows="20" cols="40" name="content" >
 		</textarea>
 		
-		
-		<div>
-		<input class="col-sm-3 btn btn-primary" " type=submit value="Apply">
-		</div>
         </form>
-		
+		<?php
+			extract($_POST);
+			$sel="select SSN from student where SEMESTER=\"".$semester."\" and SECTION=\"".$section."\";"; 
+			echo $sel;
+			$res1=mysqli_query($db,$sel);
+			while ($arr1=mysqli_fetch_assoc($res1))
+			{
+				$stmt="update student set Notifications=\"".$content."\" where SSN=\"".$arr1['SSN']."\";";
+				$res=mysqli_query($db,$stmt);
+				echo $stmt;
+			}
+			#$stmt="update student set Notification=\"".$content."\" where SSN=".$res1.";";
+			echo $stmt;
+			#$res=mysqli_query($db,$stmt);	
+			echo "Work";
+			
+		?>
     </div>
 
 
@@ -77,3 +92,6 @@
 
 </body>
 </html>
+
+
+	
