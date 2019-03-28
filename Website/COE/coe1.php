@@ -71,7 +71,85 @@
         </form>
     </div>
 
+    <div class = "row" style="padding:20px;">
 
+        <div class="col-sm-3">
+
+            <form  action="toppers.php" method="post">
+            <button type="submit" style="padding:0px;margin:0px" name=""> <h2>Class Toppers</h2></button>
+            </form>
+        </div>
+
+            <div class="col-sm-3">
+                   <h2>CNR Students:</h2> <?php
+
+                        #$stmt = "SELECT s.SSN, s.Name FROM Student as s, course_taken as ct, course as c where s.SEMESTER='".$_POST['semester']."' and s.Section ='". $_POST['section']."' and s.SSN=ct.SSn and c.course_id ='".$_POST['course']."'  and c.course_id = ct.course_id;";
+                        $stmt = "SELECT SSN FROM student WHERE SSN in (SELECT SSN FROM exam_department WHERE SGPA>9)";
+                        
+                        //print_r($stmt);
+                        $sql = mysqli_query($db, $stmt);
+                    
+                        ?>
+                        <div>
+                            <ul class = list-group>
+                            <?php
+                            
+                            
+                            while ($row = $sql->fetch_assoc()){
+                                
+                            ?>
+                            
+
+                            <li class="list-group-item">
+                        
+                            <?php  echo $row['SSN']; ?></li>
+                            <?php
+                    
+                            }
+                            ?>
+
+                            </ul>
+                        </div>
+
+
+
+
+            </div>
+
+            <div class="col-sm-3">
+                    <h2>MRD Students:</h2> <?php
+                    
+                    #$stmt = "SELECT s.SSN, s.Name FROM Student as s, course_taken as ct, course as c where s.SEMESTER='".$_POST['semester']."' and s.Section ='". $_POST['section']."' and s.SSN=ct.SSn and c.course_id ='".$_POST['course']."'  and c.course_id = ct.course_id;";
+                        $stmt = "SELECT DISTINCT SSN FROM exam_department ORDER BY CGPA DESC LIMIT 5";
+                        
+                        //print_r($stmt);
+                        $sql = mysqli_query($db, $stmt);
+                    
+                        ?>
+                        <div>
+                            <ul class = list-group>
+                            <?php
+                            
+                            
+                            while ($row = $sql->fetch_assoc()){
+                                
+                            ?>
+                            
+
+                            <li class="list-group-item">
+                        
+                            <?php  echo $row['SSN']; ?></li>
+                            <?php
+                    
+                            }
+                            ?>
+
+                            </ul>
+                        </div>
+
+            </div>
+
+</div>
 
 </div>
 
