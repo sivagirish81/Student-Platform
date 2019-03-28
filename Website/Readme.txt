@@ -14,5 +14,7 @@
   -Please Verify and remove all the redundant files.
   -Keep only the necessary Files.
 
-+Put in a lot of effort to create the sudents page any changes to the UI is not advised.
-+UI doesn't matter also.
++The Students page works properly to an extent.
++I will Upload the latest sql Files.
++Please Update it.
+
