@@ -5,7 +5,7 @@
     $arr = explode(",",$required_attr);
 
 
-    $db = mysqli_connect("localhost:3306","root","","dbms_1");
+    $db = mysqli_connect("localhost:3306","root","","student_platform");
   
     $stmt = "SELECT  COURSE_ID, ISA_1_Marks, ISA_2_Marks, ESA_Marks, Scaling, SGPA, CGPA FROM exam_department where SSN='".$arr[0]."' and Course_ID='".trim($arr[2])."' ;";
     

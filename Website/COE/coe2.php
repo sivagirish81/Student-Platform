@@ -1,5 +1,5 @@
 <?php
-    $db = mysqli_connect("localhost:3306","root","","dbms_1");
+    $db = mysqli_connect("localhost:3306","root","","student_platform");
     
 
 ?>
@@ -28,8 +28,10 @@
 
             <div class="col-sm-6" >  <?php 
 
-                $stmt = "SELECT s.SSN, s.Name FROM Student as s, course_taken as ct, course as c where s.SEMESTER='".$_POST['semester']."' and s.Section ='". $_POST['section']."' and s.SSN=ct.SSn and c.course_id ='".$_POST['course']."'  and c.course_id = ct.course_id;";
+                #$stmt = "SELECT s.SSN, s.Name FROM Student as s, course_taken as ct, course as c where s.SEMESTER='".$_POST['semester']."' and s.Section ='". $_POST['section']."' and s.SSN=ct.SSn and c.course_id ='".$_POST['course']."'  and c.course_id = ct.course_id;";
+                $stmt = "SELECT DISTINCT SSN, Name FROM Student WHERE SSN in (SELECT s.SSN  FROM Student as s, course_taken as ct, course as c  WHERE s.SEMESTER= '".$_POST['semester']."' and s.Section = '". $_POST['section']."' and s.SSN=ct.SSn and c.course_id = '".$_POST['course']."' and c.course_id = ct.course_id)";
                 
+                print_r($stmt);
                 $sql = mysqli_query($db, $stmt);
                
                 ?>

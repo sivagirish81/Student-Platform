@@ -1,6 +1,15 @@
-Login:
- $stmt="select * from student where SSN=\"".$uname."\" and password = \"".$pwd."\";";
-$stmt="select * from teacher where initials=\"".$uname."\" and password = \"".$pwd."\";";
+COE:
+
+Simple:
+"SELECT Course_id FROM Course"
+"SELECT DISTINCT Semester FROM Student"
+"SELECT DISTINCT Section FROM Student"
+"SELECT  COURSE_ID, ISA_1_Marks, ISA_2_Marks, ESA_Marks, Scaling, SGPA, CGPA FROM exam_department where SSN='".$arr[0]."' and Course_ID='".trim($arr[2])."'
+
+
+Complex:
+"SELECT DISTINCT SSN, Name FROM Student WHERE SSN in (SELECT s.SSN  FROM Student as s, course_taken as ct, course as c  WHERE s.SEMESTER= '".$_POST['semester']."' and s.Section = '". $_POST['section']."' and s.SSN=ct.SSn and c.course_id = '".$_POST['course']."' and c.course_id = ct.course_id)";
+
 
 
 Student:
