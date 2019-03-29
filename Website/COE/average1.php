@@ -55,7 +55,7 @@
 
 
             <form id="selection-from" action="average2.php" method="post">
-            <input class="col-sm-3 btn btn-primary" " type=submit value="Apply">
+            <input class="col-sm-3 btn btn-primary"  type=submit value="Apply">
             </form>
         </div>
 
