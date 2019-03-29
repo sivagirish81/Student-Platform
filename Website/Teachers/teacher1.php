@@ -65,7 +65,7 @@
 		
 		
 		<div>
-		<input class="col-sm-3 btn btn-primary" " type=submit value="Apply">
+		<input class="col-sm-3 btn btn-primary"  type=submit value="Apply">
 		</div>
         </form>
 		

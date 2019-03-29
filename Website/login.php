@@ -19,7 +19,7 @@
         {
             while($arr=mysqli_fetch_assoc($res))	
             {	
-                header("location:Student/Student_Home.html");
+                header("location:Student/Student_Home.php");
             }
     
     
@@ -42,7 +42,7 @@
         {
             while($arr=mysqli_fetch_assoc($res))	
             {	
-                header("location:welcome_teacher.html");
+                header("location:Teachers\Teacher_Home.html");
             }
     
     

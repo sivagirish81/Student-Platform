@@ -87,6 +87,7 @@
 					<a href="Profile.html">TOPPERS</a>
 					<a href="Results.php">RESULTS</a>
 					<a href="Stats.php">Statistics</a>
+					<a href="Text_and_Video.php">Text/Video Links</a>
 			</div>
 			<div class="top-right-corner">
 				<a href="#"><u>Logout</u></a>
