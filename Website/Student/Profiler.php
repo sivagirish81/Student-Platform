@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>COE</title>
+  <title>TOPPERS</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -74,6 +74,7 @@
                     <a href="Reminders.html">Reminders</a>
                     <a href="Profiler.php" class="active">TOPPERS</a>
                     <a href="Results.php">Results</a>
+                    <a href="Stats.php">Statistics</a>
             </div>
             <div class="top-right-corner">
                 <a href="#"><u>Logout</u></a>

@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>COE</title>
+  <title>Stats</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -64,35 +64,43 @@
                 background-repeat: no-repeat;
                 background-size: cover;
             }
+
+            #Stylish
+            {
+                text-align: center;
+                text-shadow: 3px 2px green;
+                font-family:Arial, Helvetica, sans-serif;
+                font-size:30px;
+            }
+
     </style>
 </head>
 <body class="container1">
     <div class="Topper">
             <div class="Mylister">
-                    <a href="Student_Home.html">Home</a>
+                    <a href="Student_Home.php">Home</a>
                     <a href="Attendance.php" >Attendance</a>
                     <a href="Reminders.html">Reminders</a>
-                    <a href="Profiler.php" class="active">TOPPERS</a>
+                    <a href="Profiler.php">TOPPERS</a>
                     <a href="Results.php">Results</a>
+                    <a href="Stats.php" class="active">Statistics</a>
             </div>
             <div class="top-right-corner">
                 <a href="#"><u>Logout</u></a>
             </div>
 <div class="container">
-
-  <h1 align="center" style="padding-bottom:50px">List Of Distinction Students</h1>
-        
-    
-
-
-        <div class="out"><table class='My-Table'><?php 
-        $sql = mysqli_query($db, "SELECT DISTINCT stud.SSN,stud.NAME,exam_department.CGPA,phone_number.Mobile_Number FROM student stud INNER JOIN exam_department ON stud.SSN=exam_department.SSN INNER JOIN phone_number ON stud.SSN=phone_number.SSN where exam_department.CGPA>=9");
+            <h1 align="center" style="padding-bottom:50px">STATISTICS</h1>
+        <div class="out"><p id="Stylish">List of People Eligible for placements</p><table class='My-Table'><?php 
+        $sql = mysqli_query($db, "SELECT NAME,DATE_OF_BIRTH,GENDER,Class_10_Marks,Class_12_Marks FROM student where SSN in( SELECT SSN FROM exam_department where CGPA>8)") ;
         echo "<script type='text/javascript'>
                     var d=document.querySelector('.My-Table');
                     d.innerHTML=`<tr>
                                     <th>NAME</th>
-                                    <th>CGPA</th>
-                                    <th>MOBILE NUMBER</th>
+                                    <th>DATE_OF_BIRTH</th>
+                                    <th>Gender</th>
+                                    <th>Class_10_Marks</th>
+                                    <th>Class_12_Marks</th>
+                                    <th>Tier</th>
                                 </tr>`;
 
                 </script>";
@@ -104,9 +112,16 @@
                     var c1=t.insertCell(0);
                     var c2=t.insertCell(1);
                     var c3=t.insertCell(2);
+                    var c4=t.insertCell(3);
+                    var c5=t.insertCell(4);
+                    var c6=t.insertCell(5);
                     c1.innerHTML=\"".$arr['NAME']."\";
-                    c2.innerHTML=\"".$arr['CGPA']."\";
-                    c3.innerHTML=\"".$arr['Mobile_Number']."\";
+                    c2.innerHTML=\"".$arr['DATE_OF_BIRTH']."\";
+                    c3.innerHTML=\"".$arr['GENDER']."\";
+                    c4.innerHTML=\"".$arr['Class_10_Marks']."\";
+                    c5.innerHTML=\"".$arr['Class_12_Marks']."\";
+                    c6.innerHTML=\"Tier1\";
+
                     </script>";
                   }
             

@@ -90,6 +90,7 @@
 					<a href="Reminders.html">Reminders</a>
 					<a href="Profiler.php">Profile</a>
 					<a href="Results.php">TOPPERS</a>
+					<a href="Stats.php">Statistics</a>
 			</div>
 			<div class="top-right-corner">
 				<a href="#"><u>Logout</u></a>
