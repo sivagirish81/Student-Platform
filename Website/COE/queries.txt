@@ -29,7 +29,15 @@ Student:
 	+SELECT ISA_2_Marks FROM exam_department where SSN=\"".$_SESSION['uname']."\";
 	+SELECT SGPA FROM exam_department where SSN=\"".$_SESSION['uname']."\";
 
+<<<<<<< HEAD
 2 Medium Level Query (Integrated With Backend)
+=======
+Teacher:
+@Teacher1.php
+	+"update student set Notifications=\"".$content."\" where SSN=\"".$arr1['SSN']."\";";
+	
+1 Medium Level Query (Integrated With Backend)
+>>>>>>> 0c0e786dea9ac7c5a3a89d4eb359a73be5f0294c
 
 Medium:
 @Profiler/Toppers PAge
@@ -40,6 +48,9 @@ Medium:
 
 "SELECT e.SSN FROM exam_department as e, student as s WHERE s.SECTION = 'E' and s.SSN = e.SSN and s.SEMESTER='4' ORDER BY SGPA LIMIT 1";
 
+"SELECT AVG(e.SGPA) as Avg FROM exam_department as e,student as s WHERE e.SSN = s.SSN and s.Semester='".$_POST['semester']."'";
+
+"SELECT AVG(e.SGPA) as Avg FROM exam_department as e,student as s WHERE e.SSN = s.SSN and s.Section='".$_POST['section']."' and s.Semester='".$_POST['semester']."'";
 
 
 

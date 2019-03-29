@@ -81,7 +81,7 @@
 	<body>
 		<div class="Topper">
 			<div class="Mylister">
-					<a href="Student_Home.html">Home</a>
+					<a href="Student_Home.php">Home</a>
 					<a href="Attendance.php" >Attendance</a>
 					<a href="Reminders.html">Reminders</a>
 					<a href="Profiler.php">TOPPERS</a>

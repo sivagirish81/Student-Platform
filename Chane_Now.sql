@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2019 at 02:46 PM
+-- Generation Time: Mar 28, 2019 at 09:33 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -39,7 +39,12 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`SSN`, `Residential_Address`, `Permanenet_Address`) VALUES
+('PES1201700569', '#4,N Block,JAPS Layout,Mangalore -575002', '#4,N Block,JAPS Layout,Mangalore -575002'),
+('PES1201701349', '#45,N Block,JAPS Layout,bangalore -575002', '#45,N Block,JAPS Layout,bangalore -575002'),
+('PES1201700888', '#45,N Block,JAPS Layout,KADIRENAHALLI,,bangalore -575002', '#45,N Block,JAPS Layout,KADIRENAHALLI,,bangalore -575002'),
 ('PES1201701526', '#45,N Block,JAPS Layout,Mangalore -575002', '#45,N Block,JAPS Layout,Mangalore -575002'),
+('PES1201701160', '#45,N Block,JS Layout,KADIRENAHALLI,,bangalore -575002', '#45,N Block,JS Layout,KADIRENAHALLI,,bangalore -575002'),
+('PES1201700010', '#46,N Block,JAPS Layout,Mangalore -575002', '#46,N Block,JAPS Layout,Mangalore -575002'),
 ('PES1201700159', '#63,A Block,AECS Layout,Marathahalli,Bangalore-560037', '#63,A Block,AECS Layout,Marathahalli,Bangalore-560037');
 
 -- --------------------------------------------------------
@@ -61,12 +66,17 @@ CREATE TABLE `attendance` (
 --
 
 INSERT INTO `attendance` (`SSN`, `Teacher_Initials`, `Course_ID`, `Attendance`, `No_Of_Classes`) VALUES
-('PES1201700159', 'SSS', 'UE17CS251', 100, '0'),
-('PES1201701526', 'SSS', 'UE17CS251', 100, '0'),
-('PES1201700159', 'ND', 'UE17MA251', 100, '0'),
-('PES1201700159', 'JR', 'UE17CS253', 97, '0'),
-('PES1201700159', 'SVI', 'UE17CS254', 100, '0'),
-('PES1201700159', 'PB', 'UE17CS252', 97, '0');
+('PES1201700159', 'SSS', 'UE17CS251', 100, '52'),
+('PES1201701526', 'SSS', 'UE17CS251', 100, '52'),
+('PES1201700159', 'ND', 'UE17MA251', 100, '52'),
+('PES1201700159', 'JR', 'UE17CS253', 97, '52'),
+('PES1201700159', 'SVI', 'UE17CS254', 100, '52'),
+('PES1201700159', 'PB', 'UE17CS252', 97, '52'),
+('PES1201701349', 'JR', 'UE17CS253', 97, '52'),
+('PES1201701349', 'SSS', 'UE17CS251', 100, '52'),
+('PES1201701349', 'ND', 'UE17MA251', 88, '52'),
+('PES1201701349', 'PB', 'UE17CS252', 100, '52'),
+('PES1201701349', 'SVI', 'UE17CS254', 97, '52');
 
 -- --------------------------------------------------------
 
@@ -164,11 +174,16 @@ CREATE TABLE `exam_department` (
 --
 
 INSERT INTO `exam_department` (`SSN`, `Course_ID`, `ISA_1_Marks`, `ISA_2_Marks`, `ESA_Marks`, `Scaling`, `SGPA`, `CGPA`) VALUES
-('PES1201701349', 'UE17CS251', 36, 0, 0, 0, '0', '10'),
-('PES1201701349', 'UE17CS252', 36, 0, 0, 0, '0', '10'),
-('PES1201701349', 'UE17MA251', 39, 0, 0, 0, '0', '10'),
-('PES1201701349', 'UE17CS253', 39, 0, 0, 0, '0', '10'),
-('PES1201701349', 'UE17CS254', 32, 0, 0, 0, '0', '10');
+('PES1201701349', 'UE17CS251', 36, 35, 95, 1, '10', '10'),
+('PES1201701349', 'UE17CS252', 36, 35, 95, 1, '10', '10'),
+('PES1201701349', 'UE17MA251', 39, 35, 95, 1, '10', '10'),
+('PES1201701349', 'UE17CS253', 39, 35, 95, 1, '10', '10'),
+('PES1201701349', 'UE17CS254', 32, 35, 95, 1, '10', '10'),
+('PES1201700159', 'UE17CS251', 30, 34, 97, 1, '9', '9'),
+('PES1201700159', 'UE17CS252', 31, 36, 87, 1, '9', '9'),
+('PES1201700159', 'UE17CS253', 36, 34, 95, 1, '9', '9'),
+('PES1201700159', 'UE17CS254', 30, 36, 85, 1, '9', '9'),
+('PES1201700159', 'UE17MA251', 36, 34, 100, 1, '9', '9');
 
 -- --------------------------------------------------------
 
@@ -189,7 +204,12 @@ CREATE TABLE `guardian/parent details` (
 
 INSERT INTO `guardian/parent details` (`SSN`, `Name`, `EMAIL_ID`, `Contact_No.`) VALUES
 ('PES1201700159', 'Ramesh Muruganantham', 'ramesh83@hotmail.com', '9844027637'),
-('PES1201701526', 'Dr. Ramakrishna Avadhani', 'rkaavadhani@gmail.com', '9876557456');
+('PES1201701526', 'Dr. Ramakrishna Avadhani', 'rkaavadhani@gmail.com', '9876557456'),
+('PES1201701349', 'TK AGARWAL', 'tkagarwal@gmail.com', '9445566777'),
+('PES1201700010', 'SHARMA', 'sharma@gmail.com', '9445566773'),
+('PES1201700888', 'RANE', 'rane@gmail.com', '9445566776'),
+('PES1201701160', 'Manohar', 'manohar@gmail.com', '9445566673'),
+('PES1201700569', 'Angadi', 'angadi@gmail.com', '944556688');
 
 -- --------------------------------------------------------
 
@@ -223,6 +243,19 @@ CREATE TABLE `placement` (
   `Package` varchar(20) NOT NULL,
   `Company_Name` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `placement`
+--
+
+INSERT INTO `placement` (`SSN`, `Package`, `Company_Name`) VALUES
+('PES1201700159', '16LPA', 'AKAMAI'),
+('PES1201701526', '16LPA', 'CISCO'),
+('PES1201701349', '16LPA', 'INTUIT'),
+('PES1201700888', '14LPA', 'WIPRO'),
+('PES1201700569', '14LPA', 'MORGAN-STANLEY'),
+('PES1201700010', '15LPA', 'BOSCH'),
+('PES1201701160', '15LPA', 'BOSCH');
 
 -- --------------------------------------------------------
 
@@ -263,9 +296,11 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`SSN`, `NAME`, `SEMESTER`, `SECTION`, `DATE_OF_BIRTH`, `GENDER`, `Class_10_Marks`, `Class_12_Marks`, `DEPARTMENT_ID`, `PASSWORD`, `Notifications`, `Reminders`) VALUES
-('PES1201700159', 'R Siva Girish', 4, 'E', '1999-03-22', 'M', 93, 91, 'CS', 'PES1201700159', '1.Submit DBMS project on Friday.', '3.Enter reminder no. to be removed or add reminders<br>5.Have to Sleep more.<br>4.Enter reminder no. to be removed or add reminders<br>'),
+('PES1201700010', 'ROHAN SHARMA', 4, 'B', '1999-11-02', 'M', 95, 95, 'EC', 'PES1201700010', '1.LAB ON SATURDAY', '1.LAB ON SATURDAY'),
+('PES1201700159', 'R Siva Girish', 4, 'E', '1999-03-22', 'M', 93, 91, 'CS', 'PES1201700159', '1.Submit DBMS project on Friday.', 'Nothing To be Reminded Off'),
 ('PES1201700569', 'Aniketh S Bhat', 4, 'D', '1999-11-02', 'M', 95, 95, 'MECH', 'PES1201700569', '1.Fluid Mechanics Assignment submission tommorow', '1.Solve Mech problems'),
 ('PES1201700888', 'Varad Ganesh Rane', 4, 'E', '1999-07-10', 'M', 90, 91, 'CS', 'PES1201700888', '1.TOC Assignment on monday', '1.Have to study for toc.'),
+('PES1201701160', 'BHARATH MANOHARAN', 4, 'B', '1999-05-28', 'M', 90, 90, 'EC', 'PES1201701160', '1.LAB ON SATURDAY', '1.LAB ON SATURDAY'),
 ('PES1201701349', 'Mayank Agarwal', 4, 'E', '2000-01-22', 'M', 100, 100, 'CS', 'PES1201701349', '1.Fine Techniques Assignment submission Tuesday.', '4.Enter reminder no. to be removed or add reminders<br>'),
 ('PES1201701526', 'Anirudh Avadhani', 4, 'E', '1999-03-28', 'M', 95, 99, 'CS', 'PES1201701526', '1.Submit DBMS project on Friday.', '1.TOC assignment on monday');
 

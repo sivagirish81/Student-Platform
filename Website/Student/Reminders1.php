@@ -88,7 +88,7 @@
 	<body>
 		<div class="Topper">
 			<div class="Mylister">
-					<a href="Student_Home.html">Home</a>
+					<a href="Student_Home.php">Home</a>
 					<a href="Attendance.php">Attendance</a>
 					<a href="Reminders.html" class="active">Reminders</a>
 					<a href="Profiler.php">TOPPER</a>
@@ -171,8 +171,6 @@
 						                				#$temp=substr($string,$i).substr($string,(-1*$j));
 						                				$temp="Nothing To be Reminded Off";
 						                				#echo $temp;
-						                				echo $i;
-						                				echo $j;
 						                				$stmt1="update student set Reminders=\"".$temp."\"where SSN=\"".$_SESSION['uname']."\"";
 						                				$res=mysqli_query($db,$stmt1);
 						                				$brflag=1;
