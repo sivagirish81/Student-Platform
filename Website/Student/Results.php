@@ -88,6 +88,7 @@
 					<a href="Results.php" class="active">Results</a>
 					<a href="Stats.php">Statistics</a>
 					<a href="Text_and_Video.php">Text/Video Links</a>
+					<a href="Info.php">Info</a>
 			</div>
 			<div class="top-right-corner">
 				<a href="#"><u>Logout</u></a>
