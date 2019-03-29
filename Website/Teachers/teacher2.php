@@ -75,16 +75,16 @@
 		<?php
 			extract($_POST);
 			$sel="select SSN from student where SEMESTER=\"".$semester."\" and SECTION=\"".$section."\";"; 
-			echo $sel;
+			#echo $sel;
 			$res1=mysqli_query($db,$sel);
 			while ($arr1=mysqli_fetch_assoc($res1))
 			{
 				$stmt="update student set Notifications=\"".$content."\" where SSN=\"".$arr1['SSN']."\";";
 				$res=mysqli_query($db,$stmt);
-				echo $stmt;
+				#echo $stmt;
 			}
 			#$stmt="update student set Notification=\"".$content."\" where SSN=".$res1.";";
-			echo $stmt;
+			#echo $stmt;
 			#$res=mysqli_query($db,$stmt);	
 			#echo "Work";
 			
