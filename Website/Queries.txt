@@ -1,5 +1,5 @@
 
-15 Simple Queries (Integrated With Backend)
+33 Simple Queries (Integrated With Backend)
 
 Simple:
 
@@ -8,6 +8,9 @@ COE:
 "SELECT DISTINCT Semester FROM Student"
 "SELECT DISTINCT Section FROM Student"
 "SELECT  COURSE_ID, ISA_1_Marks, ISA_2_Marks, ESA_Marks, Scaling, SGPA, CGPA FROM exam_department where SSN='".$arr[0]."' and Course_ID='".trim($arr[2])."'
+
+SELECT e.SSN FROM exam_department as e, student as s WHERE s.SECTION ='". $_POST['section'] ."'and s.SSN = e.SSN and s.SEMESTER='".$_POST['semester']."' ORDER BY SGPA LIMIT 1";
+
 
 Student:
 @Reminders:
@@ -80,11 +83,10 @@ SELECT AVG(e.SGPA) as Avg FROM exam_department as e,student as s WHERE e.SSN = s
 
 $stmt = "SELECT DISTINCT SSN FROM exam_department ORDER BY CGPA DESC LIMIT 5";
 
-SELECT e.SSN FROM exam_department as e, student as s WHERE s.SECTION ='". $_POST['section'] ."'and s.SSN = e.SSN and s.SEMESTER='".$_POST['semester']."' ORDER BY SGPA LIMIT 1";
 
 
 "SELECT s.SSN, s.Name FROM Student as s, course_taken as ct, course as c where s.SEMESTER=\"".$_POST['semester']."\" and s.Section =\"". $_POST['section']."\" and s.SSN=ct.SSn and c.course_name =\"".$_POST['course']."\"  and c.course_id = ct.course_id;"
-3 Complex Queries
+7 Complex Queries
 
 
 @7 coplex Level(Integrated with backend)
