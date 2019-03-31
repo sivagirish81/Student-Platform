@@ -102,7 +102,7 @@ SELECT SSN FROM student WHERE SSN in (SELECT SSN FROM exam_department WHERE SGPA
 
 "SELECT DISTINCT SSN, Name FROM Student WHERE SSN in (SELECT s.SSN  FROM Student as s, course_taken as ct, course as c  WHERE s.SEMESTER= '".$_POST['semester']."' and s.Section = '". $_POST['section']."' and s.SSN=ct.SSn and c.course_id = '".$_POST['course']."' and c.course_id = ct.course_id)";
                 
-
+@Info page
 SELECT Name FROM teacher WHERE Initials in (SELECT t.Initials FROM teacher as t, course_taken as ct WHERE t.Initials = ct.Teacher_Initials and ct.SSN ='".$_SESSION['uname']."')"
 
 @Profiler/Toppers PAge

@@ -80,7 +80,7 @@
                 <a href="#"><u>Logout</u></a>
             </div>
 <div class="container">
-  <h1 align="center" style="padding-bottom:50px">Send Notification</h1>
+  <h1 align="center" style="padding-bottom:50px">Teachers Teaching me</h1>
 
     <div style="padding-bottom:50px">
         <div class="row">
