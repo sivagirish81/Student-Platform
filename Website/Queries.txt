@@ -87,7 +87,7 @@ SELECT e.SSN FROM exam_department as e, student as s WHERE s.SECTION ='". $_POST
 3 Complex Queries
 
 
-@7 coplex Level(Integrated with backend)
+@7 complex Level(Integrated with backend)
 Complex:
 "SELECT DISTINCT SSN, Name FROM Student WHERE SSN in (SELECT s.SSN  FROM Student as s, course_taken as ct, course as c  WHERE s.SEMESTER= '".$_POST['semester']."' and s.Section = '". $_POST['section']."' and s.SSN=ct.SSn and c.course_id = '".$_POST['course']."' and c.course_id = ct.course_id)";
 
