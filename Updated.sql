@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2019 at 09:33 PM
+-- Generation Time: Mar 31, 2019 at 08:51 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -230,6 +230,8 @@ CREATE TABLE `phone_number` (
 INSERT INTO `phone_number` (`SSN`, `Mobile_Number`, `Landline _Number`) VALUES
 ('PES1201701526', 8217496489, 42344444),
 ('PES1201700159', 8310450916, 41425086),
+('PES1201700888', 8884747765, 44556633),
+('PES1201700010', 8884747767, 44556676),
 ('PES1201701349', 9972563187, 44556677);
 
 -- --------------------------------------------------------
@@ -270,6 +272,19 @@ CREATE TABLE `resources` (
   `Teacher_Initials` char(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `resources`
+--
+
+INSERT INTO `resources` (`Course_ID`, `Text_Link`, `Video_Link`, `Teacher_Initials`) VALUES
+('UE17CS253', 'https://github.com/MuhammadBilalYar/Hadoop-On-Window/wiki/Step-by-step-Hadoop-2.8.0-installation-on-Window-10', 'https://github.com/MuhammadBilalYar/Hadoop-On-Window/wiki/Step-by-step-Hadoop-2.8.0-installation-on-Window-10', 'NSK'),
+('UE17CS254', 'https://github.com/MuhammadBilalYar/Hadoop-On-Window/wiki/Step-by-step-Hadoop-2.8.0-installation-on-Window-10', 'https://github.com/MuhammadBilalYar/Hadoop-On-Window/wiki/Step-by-step-Hadoop-2.8.0-installation-on-Window-10', 'ND'),
+('UE17CS251', 'https://www.w3schools.com/sql/', 'https://www.w3schools.com/sql/', 'PB'),
+('UE17CS252', 'https://www.geeksforgeeks.org/', 'https://www.geeksforgeeks.org/', 'SSS'),
+('UE17CS253', 'https://en.wikipedia.org/wiki/Arduino', 'https://en.wikipedia.org/wiki/Arduino', 'AR'),
+('UE17CS253', 'https://en.wikipedia.org/wiki/Theory_of_computation', 'https://en.wikipedia.org/wiki/Theory_of_computation', 'SVI'),
+('UE17MA251', 'https://www.w3schools.com/sql/', 'https://www.w3schools.com/sql/', 'NKS');
+
 -- --------------------------------------------------------
 
 --
@@ -296,13 +311,13 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`SSN`, `NAME`, `SEMESTER`, `SECTION`, `DATE_OF_BIRTH`, `GENDER`, `Class_10_Marks`, `Class_12_Marks`, `DEPARTMENT_ID`, `PASSWORD`, `Notifications`, `Reminders`) VALUES
-('PES1201700010', 'ROHAN SHARMA', 4, 'B', '1999-11-02', 'M', 95, 95, 'EC', 'PES1201700010', '1.LAB ON SATURDAY', '1.LAB ON SATURDAY'),
-('PES1201700159', 'R Siva Girish', 4, 'E', '1999-03-22', 'M', 93, 91, 'CS', 'PES1201700159', '1.Submit DBMS project on Friday.', 'Nothing To be Reminded Off'),
+('PES1201700010', 'ROHAN SHARMA', 4, 'B', '1999-11-02', 'M', 95, 95, 'EC', 'PES1201700010', '		1.DAA Assignment On Friday.', '1.LAB ON SATURDAY'),
+('PES1201700159', 'R Siva Girish', 4, 'E', '1999-03-22', 'M', 93, 91, 'CS', 'PES1201700159', '	3.Good Morning.	', '1.DBMS Project Submission on monday.<br>'),
 ('PES1201700569', 'Aniketh S Bhat', 4, 'D', '1999-11-02', 'M', 95, 95, 'MECH', 'PES1201700569', '1.Fluid Mechanics Assignment submission tommorow', '1.Solve Mech problems'),
-('PES1201700888', 'Varad Ganesh Rane', 4, 'E', '1999-07-10', 'M', 90, 91, 'CS', 'PES1201700888', '1.TOC Assignment on monday', '1.Have to study for toc.'),
-('PES1201701160', 'BHARATH MANOHARAN', 4, 'B', '1999-05-28', 'M', 90, 90, 'EC', 'PES1201701160', '1.LAB ON SATURDAY', '1.LAB ON SATURDAY'),
-('PES1201701349', 'Mayank Agarwal', 4, 'E', '2000-01-22', 'M', 100, 100, 'CS', 'PES1201701349', '1.Fine Techniques Assignment submission Tuesday.', '4.Enter reminder no. to be removed or add reminders<br>'),
-('PES1201701526', 'Anirudh Avadhani', 4, 'E', '1999-03-28', 'M', 95, 99, 'CS', 'PES1201701526', '1.Submit DBMS project on Friday.', '1.TOC assignment on monday');
+('PES1201700888', 'Varad Ganesh Rane', 4, 'E', '1999-07-10', 'M', 90, 91, 'CS', 'PES1201700888', '	3.Good Morning.	', '1.Have to study for toc.'),
+('PES1201701160', 'BHARATH MANOHARAN', 4, 'B', '1999-05-28', 'M', 90, 90, 'EC', 'PES1201701160', '		1.DAA Assignment On Friday.', '1.LAB ON SATURDAY'),
+('PES1201701349', 'Mayank Agarwal', 4, 'E', '2000-01-22', 'M', 100, 100, 'CS', 'PES1201701349', '	3.Good Morning.	', '4.Enter reminder no. to be removed or add reminders<br>'),
+('PES1201701526', 'Anirudh Avadhani', 4, 'E', '1999-03-28', 'M', 95, 99, 'CS', 'PES1201701526', '	3.Good Morning.	', '1.TOC assignment on monday');
 
 -- --------------------------------------------------------
 
