@@ -1,19 +1,45 @@
 <?php
-    $db = mysqli_connect("localhost:3306","root","","student_platform");
-    
 
+    extract($_POST);
+
+
+    $arr = explode(",",$ssn_course);
+    $ssn = $arr[0];
+    $course_id = $arr[1];
+
+
+    $db = mysqli_connect("localhost:3306","root","","student_platform");
+  
+    //$stmt = "SELECT  COURSE_ID, ISA_1_Marks, ISA_2_Marks, ESA_Marks, Scaling, SGPA, CGPA FROM exam_department where SSN='".$arr[0]."' and Course_ID='".trim($arr[2])."' ;";
+    
+    //$sql = mysqli_query($db, $stmt );    
+
+    /*
+    while ($row = $sql->fetch_assoc()){
+        $ssn = $arr[0];
+        $course_id = $row['COURSE_ID'];
+        $isa1 = $row['ISA_1_Marks'];
+        $isa2 = $row['ISA_2_Marks'];
+        $esa = $row['ESA_Marks'];
+        $scaling = $row['Scaling'];
+        $SGPA = $row['SGPA'];
+        $CGPA = $row['CGPA'];        
+    } */      
+
+   
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>Marks</title>
 
-<style>
+  <style>
 
 body
 {
-            background-image: url("Images/paper2.jpg");
+    background-image: url("Images/paper2.jpg");
 				background-repeat: no-repeat;
 				background-size: cover;
 }
@@ -88,10 +114,15 @@ body
     font-family:Arial, Helvetica, sans-serif;
     font-size:40px;
 }
+
+.needed_padding
+{
+    padding:10px;
+}
         
 </style>
 
-  <title>COE</title>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -99,6 +130,7 @@ body
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+
 
 <div class="Topper">
 			<div class="Mylister">
@@ -115,59 +147,46 @@ body
 
 
 <div class="container">
-
-
-  <h1 align="center" style="padding-bottom:50px">Examination Results</h1>
-
-
+  <h1 align = "center" style="padding:50px"></h1>
   
-    <div align = "center">
-        <div class="row">
-    
-            <div class="col-sm-3"></div>
+  
+  <div class="row">
+    <div class="col-sm-3"></div>
+   
 
-            <div class="col-sm-6" >  <?php 
 
-                #$stmt = "SELECT s.SSN, s.Name FROM Student as s, course_taken as ct, course as c where s.SEMESTER='".$_POST['semester']."' and s.Section ='". $_POST['section']."' and s.SSN=ct.SSn and c.course_id ='".$_POST['course']."'  and c.course_id = ct.course_id;";
-                $stmt = "SELECT DISTINCT SSN, Name FROM Student WHERE SSN in (SELECT s.SSN  FROM Student as s, course_taken as ct, course as c  WHERE s.SEMESTER= '".$_POST['semester']."' and s.Section = '". $_POST['section']."' and s.SSN=ct.SSn and c.course_id = '".$_POST['course']."' and c.course_id = ct.course_id)";
-                
-                //print_r($stmt);
-                $sql = mysqli_query($db, $stmt);
-               
-                ?>
-                <div>
-                    <form action="coe3.php" method="post">
-                    <?php
-                    
-                    
-                    while ($row = $sql->fetch_assoc()){
-                        
-                    ?>
-                    
-
-                    <button name="required_attr" value="<?php 
-                
-                echo $row['SSN']; ?>,<?php  echo $row['Name']; ?> , <?php  echo $_POST['course']; ?> "
-                type="submit"> 
-                <pre> <?php  echo $row['SSN']; ?>         <?php  echo $row['Name']; ?></pre> </button>
-
-                    <?php
-            
-                    }
-                    ?>
-
-                    </form>
-                </div>
-            </div>
-
-        </div>
-    
-
-    
-    
+    <div class="col-sm-3" > <ul  class="list-group"  > 
+            <li class="list-group-item needed_padding" >ISA 1</li>
+            <li class="list-group-item needed_padding" >ISA 2</li>
+            <li class="list-group-item needed_padding" >ESA</li>
+            <li class="list-group-item needed_padding" >Scaling</li>
+            <li class="list-group-item needed_padding" >SGPA</li>
+            <li class="list-group-item needed_padding" >CGPA</li>
+        </ul> 
     </div>
+  
+    <div class="col-sm-3" >
+        <form action="coe5.php" method="post">
+            <ul  class="list-group" > 
+                <li class="list-group-item" ><input type="text" name="isa1"></li>
+                <li class="list-group-item" ><input type="text" name="isa2"></li>
+                <li class="list-group-item" ><input type="text" name="esa"></li>
+                <li class="list-group-item" ><input type="text" name="scaling"></li>
+                <li class="list-group-item" ><input type="text" name="sgpa"></li>
+                <li class="list-group-item" ><input type="text" name="cgpa"></li>
 
 
+            </ul> 
+        
+    </div>
+  
+  
+  </div>
+
+  <div align="center"> 
+  <button type="submit" class="btn btn-primary" name="ssn_course" value="<?php echo $ssn;?>,<?php echo $course_id;?>"  > Submit </button>
+    </div>
+    </form>
 </div>
 
 </body>
