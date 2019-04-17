@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2019 at 08:51 PM
+-- Generation Time: Apr 17, 2019 at 09:15 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -77,6 +77,27 @@ INSERT INTO `attendance` (`SSN`, `Teacher_Initials`, `Course_ID`, `Attendance`, 
 ('PES1201701349', 'ND', 'UE17MA251', 88, '52'),
 ('PES1201701349', 'PB', 'UE17CS252', 100, '52'),
 ('PES1201701349', 'SVI', 'UE17CS254', 97, '52');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `calender_of_events`
+--
+
+CREATE TABLE `calender_of_events` (
+  `Date` date NOT NULL,
+  `EVENTS` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `calender_of_events`
+--
+
+INSERT INTO `calender_of_events` (`Date`, `EVENTS`) VALUES
+('2019-04-18', 'Mahveer Jeyanthi'),
+('2019-04-20', 'Elections'),
+('2019-04-21', 'Good Friday'),
+('2019-04-22', 'Holiday');
 
 -- --------------------------------------------------------
 
@@ -283,7 +304,9 @@ INSERT INTO `resources` (`Course_ID`, `Text_Link`, `Video_Link`, `Teacher_Initia
 ('UE17CS252', 'https://www.geeksforgeeks.org/', 'https://www.geeksforgeeks.org/', 'SSS'),
 ('UE17CS253', 'https://en.wikipedia.org/wiki/Arduino', 'https://en.wikipedia.org/wiki/Arduino', 'AR'),
 ('UE17CS253', 'https://en.wikipedia.org/wiki/Theory_of_computation', 'https://en.wikipedia.org/wiki/Theory_of_computation', 'SVI'),
-('UE17MA251', 'https://www.w3schools.com/sql/', 'https://www.w3schools.com/sql/', 'NKS');
+('UE17MA251', 'https://www.w3schools.com/sql/', 'https://www.w3schools.com/sql/', 'NKS'),
+('UE17CS252', 'https://en.wikipedia.org/wiki/Microprocessor', 'https://en.wikipedia.org/wiki/Microprocessor', 'BP'),
+('UE17CS251', 'https://github.com/MuhammadBilalYar/Hadoop-On-Window/wiki/Step-by-step-Hadoop-2.8.0-installation-on-Window-10', 'https://www.geeksforgeeks.org/', 'NSK');
 
 -- --------------------------------------------------------
 
@@ -312,12 +335,12 @@ CREATE TABLE `student` (
 
 INSERT INTO `student` (`SSN`, `NAME`, `SEMESTER`, `SECTION`, `DATE_OF_BIRTH`, `GENDER`, `Class_10_Marks`, `Class_12_Marks`, `DEPARTMENT_ID`, `PASSWORD`, `Notifications`, `Reminders`) VALUES
 ('PES1201700010', 'ROHAN SHARMA', 4, 'B', '1999-11-02', 'M', 95, 95, 'EC', 'PES1201700010', '		1.DAA Assignment On Friday.', '1.LAB ON SATURDAY'),
-('PES1201700159', 'R Siva Girish', 4, 'E', '1999-03-22', 'M', 93, 91, 'CS', 'PES1201700159', '	3.Good Morning.	', '1.DBMS Project Submission on monday.<br>'),
+('PES1201700159', 'R Siva Girish', 4, 'E', '1999-03-22', 'M', 93, 91, 'CS', 'PES1201700159', '		1.DBMS Project Submission On Monday.', '1.DBMS Project Submission on monday.<br>Submit<br>md md<br>'),
 ('PES1201700569', 'Aniketh S Bhat', 4, 'D', '1999-11-02', 'M', 95, 95, 'MECH', 'PES1201700569', '1.Fluid Mechanics Assignment submission tommorow', '1.Solve Mech problems'),
-('PES1201700888', 'Varad Ganesh Rane', 4, 'E', '1999-07-10', 'M', 90, 91, 'CS', 'PES1201700888', '	3.Good Morning.	', '1.Have to study for toc.'),
+('PES1201700888', 'Varad Ganesh Rane', 4, 'E', '1999-07-10', 'M', 90, 91, 'CS', 'PES1201700888', '		1.DBMS Project Submission On Monday.', '1.Have to study for toc.'),
 ('PES1201701160', 'BHARATH MANOHARAN', 4, 'B', '1999-05-28', 'M', 90, 90, 'EC', 'PES1201701160', '		1.DAA Assignment On Friday.', '1.LAB ON SATURDAY'),
-('PES1201701349', 'Mayank Agarwal', 4, 'E', '2000-01-22', 'M', 100, 100, 'CS', 'PES1201701349', '	3.Good Morning.	', '4.Enter reminder no. to be removed or add reminders<br>'),
-('PES1201701526', 'Anirudh Avadhani', 4, 'E', '1999-03-28', 'M', 95, 99, 'CS', 'PES1201701526', '	3.Good Morning.	', '1.TOC assignment on monday');
+('PES1201701349', 'Mayank Agarwal', 4, 'E', '2000-01-22', 'M', 100, 100, 'CS', 'PES1201701349', '		1.DBMS Project Submission On Monday.', '4.Enter reminder no. to be removed or add reminders<br>'),
+('PES1201701526', 'Anirudh Avadhani', 4, 'E', '1999-03-28', 'M', 95, 99, 'CS', 'PES1201701526', '		1.DBMS Project Submission On Monday.', '1.TOC assignment on monday');
 
 -- --------------------------------------------------------
 
@@ -351,6 +374,35 @@ INSERT INTO `teacher` (`Initials`, `Name`, `Department_ID`, `Password`) VALUES
 ('SVI', 'Prof. Sangeeta VI', 'CS', 'CSSVI'),
 ('VJ', 'Prof. Vinay Joshi', 'CS', 'VJCS');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `time_table`
+--
+
+CREATE TABLE `time_table` (
+  `SEMESTER` int(2) NOT NULL,
+  `SECTION` char(2) NOT NULL,
+  `Day` varchar(18) NOT NULL,
+  `Period1` varchar(18) NOT NULL,
+  `Period2` varchar(18) NOT NULL,
+  `Period3` varchar(18) NOT NULL,
+  `Period4` varchar(18) NOT NULL,
+  `Period5` varchar(18) NOT NULL,
+  `Period6` varchar(18) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `time_table`
+--
+
+INSERT INTO `time_table` (`SEMESTER`, `SECTION`, `Day`, `Period1`, `Period2`, `Period3`, `Period4`, `Period5`, `Period6`) VALUES
+(4, 'E', 'FRIDAY', 'LA', 'LA', 'DAA', 'MPCA', 'Special Topic', 'Special Topic'),
+(4, 'E', 'MONDAY', 'DBMS', 'TOC', 'LA', 'LA', 'DAA Lab', 'DAA Lab'),
+(4, 'E', 'THURSDAY', 'DBMS', 'DAA', 'MPCA Lab', 'MPCA Lab', 'TOC', 'Minor'),
+(4, 'E', 'TUESDAY', 'MPCA', 'DAA', 'DBMS', 'LA', 'TOC', 'MPCA'),
+(4, 'E', 'WEDNESDAY', 'TOC', 'MPCA', 'DAA', 'DBMS', 'MINOR', 'MINOR');
+
 --
 -- Indexes for dumped tables
 --
@@ -369,6 +421,12 @@ ALTER TABLE `attendance`
   ADD KEY `SSN` (`SSN`),
   ADD KEY `Teacher Initials` (`Teacher_Initials`),
   ADD KEY `Course_ID` (`Course_ID`);
+
+--
+-- Indexes for table `calender_of_events`
+--
+ALTER TABLE `calender_of_events`
+  ADD PRIMARY KEY (`Date`);
 
 --
 -- Indexes for table `course`
@@ -437,6 +495,12 @@ ALTER TABLE `student`
 --
 ALTER TABLE `teacher`
   ADD PRIMARY KEY (`Initials`);
+
+--
+-- Indexes for table `time_table`
+--
+ALTER TABLE `time_table`
+  ADD PRIMARY KEY (`SEMESTER`,`SECTION`,`Day`);
 
 --
 -- Constraints for dumped tables
