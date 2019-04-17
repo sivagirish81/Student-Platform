@@ -68,9 +68,11 @@
                     <a href="Stats.php">Statistics</a>
                     <a href="Text_and_Video.php" class="active">Text/Video Links</a>
                     <a href="Info.php">Info</a>
+                    <a href="Time-Table.php">Time Table</a>
+                    <a href="Calender_of_events.php">Calendar Of Events</a>
             </div>
             <div class="top-right-corner">
-                <a href="#"><u>Logout</u></a>
+                <a href="D:\SoftwareTools\Xampp\htdocs\Student-Platform\Website\login.html"><u>Logout</u></a>
             </div>
 <div class="container">
     

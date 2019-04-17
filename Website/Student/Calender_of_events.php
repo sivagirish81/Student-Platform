@@ -73,6 +73,12 @@
                 font-family:Arial, Helvetica, sans-serif;
                 font-size:30px;
             }
+            .Date_and_Event
+            {
+                #padding:28px 30px;
+                background-color: black;
+                color: green;
+            }
 </style>
 <body class="container1">
     <div class="Topper">
@@ -83,59 +89,36 @@
                     <a href="Profiler.php">Profile</a>
                     <a href="Results.php">TOPPERS</a>
                     <a href="Stats.php">Statistics</a>
-                    <a href="Text_and_Video.php" class="active">Text/Video Links</a>
+                    <a href="Text_and_Video.php">Text/Video Links</a>
                     <a href="Info.php">Info</a>
                     <a href="Time-Table.php">Time Table</a>
-                    <a href="Calender_of_events.php">Calendar Of Events</a>
+                    <a href="Calender_of_events.php" class="active">Calendar Of Events</a>
             </div>
             <div class="top-right-corner">
                 <a href="D:\SoftwareTools\Xampp\htdocs\Student-Platform\Website\login.html"><u>Logout</u></a>
             </div>
 
 <div class="container">
-  <h1 align="center" style="padding-bottom:50px" id="Stylish">Text and Video Links</h1>
+  <h1 align="center" style="padding-bottom:50px" id="Stylish">Calender Of Events</h1>
 
   
-    <div align = "center">
-        <table class="row">
-    
-              <?php 
-
-                #$stmt = "SELECT s.SSN, s.Name FROM Student as s, course_taken as ct, course as c where s.SEMESTER='".$_POST['semester']."' and s.Section ='". $_POST['section']."' and s.SSN=ct.SSn and c.course_id ='".$_POST['course']."'  and c.course_id = ct.course_id;";
-                $stmt = "SELECT DISTINCT R.Course_ID,R.Text_Link,R.Video_Link,course.Anchor FROM resources R INNER JOIN course ON course.Course_id=R.Course_ID WHERE R.Teacher_Initials=course.Anchor";
-                
-                $sql = mysqli_query($db, $stmt);
-
-                echo "<script type='text/javascript'>
-                        var d=document.querySelector('.row');
-                        d.innerHTML=`<tr>
-                                    <th>Course ID</th>
-                                    <th>TextBooks</th>
-                                    <th>Videos</th>
-                                    <th>Anchor</th>
-                                </tr>`;
-                                 </script>";
-                            
-                         while ($arr=mysqli_fetch_array($sql, MYSQLI_ASSOC))
-                        {
-                            echo "<script type='text/javascript'>
-                                    var d=document.querySelector('.row');
-                                    var t=d.insertRow(1);
-                                    var c1=t.insertCell(0);
-                                    var c2=t.insertCell(1);
-                                    var c3=t.insertCell(2);
-                                    var c4=t.insertCell(3);
-                                    c1.innerHTML=\"".$arr['Course_ID']."\";
-                                    c2.innerHTML=\"".$arr['Text_Link']."\";
-                                    c3.innerHTML=\"".$arr['Video_Link']."\";
-                                    c4.innerHTML=\"".$arr['Anchor']."\";
-                            </script>";
-                        }
-
-                       
-               
+    <div id="Content" align = "center">
+        <?php 
+                    $sql=mysqli_query($db,"SELECT * FROM Calender_Of_Events");
+                    while ($arr=mysqli_fetch_array($sql, MYSQLI_ASSOC))
+                    {
+                        echo "<script type='text/javascript'>
+                               var x=document.getElementById('Content');
+                               var d=document.createElement('div');
+                               d.className='Date_and_Event'
+                               d.innerHTML=`<h3>".$arr['Date']."</h3>
+                                            </br>
+                                            <h6><b><i>".$arr['EVENTS']."</i></b></h6>
+                                            </br>`
+                               x.appendChild(d);
+                               </script>";
+                    }
                 ?>
-
                     </form>
                 </div>
             </div>

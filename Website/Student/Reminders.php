@@ -94,9 +94,11 @@
 					<a href="Stats.php">Statistics</a>
 					<a href="Text_and_Video.php">Text/Video Links</a>
 					<a href="Info.php">Info</a>
+					<a href="Time-Table.php">Time Table</a>
+                    <a href="Calender_of_events.php">Calendar Of Events</a>
 			</div>
 			<div class="top-right-corner">
-				<a href="#"><u>Logout</u></a>
+				<a href="D:\SoftwareTools\Xampp\htdocs\Student-Platform\Website\login.html"><u>Logout</u></a>
 			</div>
 		<div class="My-container">
 			<div class="Notifier">
@@ -106,7 +108,7 @@
 						<p id="test">Some Text...</p>
 						<form action="Reminders1.php" method="post">
 							<div class="form-group">
-								<input id="submit" type="submit" name="Submitter" value="Insert/remove Remainders">
+								<input id="submit" type="submit" name="Submitter">Insert/remove Remainders</input>
 							</div>
 						</form>
 					</div>
