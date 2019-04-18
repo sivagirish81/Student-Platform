@@ -90,20 +90,39 @@
 
         
     <div>
-    
-    <?php
-    
-    ?>
     </div>
 
-         <form id="selection-from" action="Info1.php" method="post">
-    
-    
-    <div>
-    <input class="col-sm-6 btn btn-primary" type=submit value="Get Details">
-    </div>
+         <form id="selection-from" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         </form>
-    
+        <table class='My-Table'><?php
+    session_start();
+
+
+      $stmt = "SELECT Name FROM teacher WHERE Initials in (SELECT t.Initials FROM teacher as t, course_taken as ct WHERE t.Initials = ct.Teacher_Initials and ct.SSN ='".$_SESSION['uname']."')";
+      #print_r($stmt);
+      $sql=mysqli_query($db,$stmt);
+
+      echo "<script type='text/javascript'>
+                    var d=document.querySelector('.My-Table');
+                    d.innerHTML=`<tr>
+                                    <th>Teachers Teaching ME</th>
+                                    
+                                </tr>`;
+
+                </script>";
+      while ($arr=mysqli_fetch_assoc($sql))
+        {
+          echo "<script type='text/javascript'>
+                    var d=document.querySelector('.My-Table');
+                    var t=d.insertRow(1);
+                    var c1=t.insertCell(0);
+                    c1.innerHTML=\"".$arr['Name']."\";
+                    </script>";
+                  }
+            
+            
+      
+    ?>
     </div>
 
 

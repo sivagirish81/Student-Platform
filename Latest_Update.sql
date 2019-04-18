@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2019 at 09:15 PM
+-- Generation Time: Apr 18, 2019 at 09:46 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -67,7 +67,6 @@ CREATE TABLE `attendance` (
 
 INSERT INTO `attendance` (`SSN`, `Teacher_Initials`, `Course_ID`, `Attendance`, `No_Of_Classes`) VALUES
 ('PES1201700159', 'SSS', 'UE17CS251', 100, '52'),
-('PES1201701526', 'SSS', 'UE17CS251', 100, '52'),
 ('PES1201700159', 'ND', 'UE17MA251', 100, '52'),
 ('PES1201700159', 'JR', 'UE17CS253', 97, '52'),
 ('PES1201700159', 'SVI', 'UE17CS254', 100, '52'),
@@ -76,7 +75,12 @@ INSERT INTO `attendance` (`SSN`, `Teacher_Initials`, `Course_ID`, `Attendance`, 
 ('PES1201701349', 'SSS', 'UE17CS251', 100, '52'),
 ('PES1201701349', 'ND', 'UE17MA251', 88, '52'),
 ('PES1201701349', 'PB', 'UE17CS252', 100, '52'),
-('PES1201701349', 'SVI', 'UE17CS254', 97, '52');
+('PES1201701349', 'SVI', 'UE17CS254', 97, '52'),
+('PES1201701526', 'ND', 'UE17MA251', 100, '52'),
+('PES1201701526', 'PB', 'UE17CS252', 85, '52'),
+('PES1201701526', 'SVI', 'UE17CS254', 100, '52'),
+('PES1201701526', 'JR', 'UE17CS253', 100, '52'),
+('PES1201701526', 'SSS', 'UE17CS251', 60, '52');
 
 -- --------------------------------------------------------
 
@@ -97,7 +101,11 @@ INSERT INTO `calender_of_events` (`Date`, `EVENTS`) VALUES
 ('2019-04-18', 'Mahveer Jeyanthi'),
 ('2019-04-20', 'Elections'),
 ('2019-04-21', 'Good Friday'),
-('2019-04-22', 'Holiday');
+('2019-04-22', 'Holiday'),
+('2019-04-26', 'LAST WORKING DAY'),
+('2019-04-27', 'STUDY HOLIDAY'),
+('2019-04-28', 'STUDY HOLIDAY'),
+('2019-04-29', 'STUDY HOLIDAY');
 
 -- --------------------------------------------------------
 
@@ -198,13 +206,18 @@ INSERT INTO `exam_department` (`SSN`, `Course_ID`, `ISA_1_Marks`, `ISA_2_Marks`,
 ('PES1201701349', 'UE17CS251', 36, 35, 95, 1, '10', '10'),
 ('PES1201701349', 'UE17CS252', 36, 35, 95, 1, '10', '10'),
 ('PES1201701349', 'UE17MA251', 39, 35, 95, 1, '10', '10'),
-('PES1201701349', 'UE17CS253', 39, 35, 95, 1, '10', '10'),
+('PES1201701349', 'UE17CS253', 40, 40, 98, 1, '10', '10'),
 ('PES1201701349', 'UE17CS254', 32, 35, 95, 1, '10', '10'),
 ('PES1201700159', 'UE17CS251', 30, 34, 97, 1, '9', '9'),
 ('PES1201700159', 'UE17CS252', 31, 36, 87, 1, '9', '9'),
 ('PES1201700159', 'UE17CS253', 36, 34, 95, 1, '9', '9'),
 ('PES1201700159', 'UE17CS254', 30, 36, 85, 1, '9', '9'),
-('PES1201700159', 'UE17MA251', 36, 34, 100, 1, '9', '9');
+('PES1201700159', 'UE17MA251', 36, 34, 100, 1, '9', '9'),
+('PES1201701526', 'UE17MA251', 32, 34, 95, 0, '10', '9'),
+('PES1201701526', 'UE17CS251', 36, 34, 87, 2, '10', '9'),
+('PES1201701526', 'UE17CS252', 28, 32, 88, 2, '10', '9'),
+('PES1201701526', 'UE17CS253', 36, 34, 93, 2, '10', '9'),
+('PES1201701526', 'UE17CS254', 36, 31, 93, 4, '10', '9');
 
 -- --------------------------------------------------------
 
@@ -335,7 +348,7 @@ CREATE TABLE `student` (
 
 INSERT INTO `student` (`SSN`, `NAME`, `SEMESTER`, `SECTION`, `DATE_OF_BIRTH`, `GENDER`, `Class_10_Marks`, `Class_12_Marks`, `DEPARTMENT_ID`, `PASSWORD`, `Notifications`, `Reminders`) VALUES
 ('PES1201700010', 'ROHAN SHARMA', 4, 'B', '1999-11-02', 'M', 95, 95, 'EC', 'PES1201700010', '		1.DAA Assignment On Friday.', '1.LAB ON SATURDAY'),
-('PES1201700159', 'R Siva Girish', 4, 'E', '1999-03-22', 'M', 93, 91, 'CS', 'PES1201700159', '		1.DBMS Project Submission On Monday.', '1.DBMS Project Submission on monday.<br>Submit<br>md md<br>'),
+('PES1201700159', 'R Siva Girish', 4, 'E', '1999-03-22', 'M', 93, 91, 'CS', 'PES1201700159', '		1.DBMS Project Submission On Monday.', '|1.Have to submit DBMS Project on tuesday.|3.Need to Return Library Books.|2.Submit DAA Project on tuesday'),
 ('PES1201700569', 'Aniketh S Bhat', 4, 'D', '1999-11-02', 'M', 95, 95, 'MECH', 'PES1201700569', '1.Fluid Mechanics Assignment submission tommorow', '1.Solve Mech problems'),
 ('PES1201700888', 'Varad Ganesh Rane', 4, 'E', '1999-07-10', 'M', 90, 91, 'CS', 'PES1201700888', '		1.DBMS Project Submission On Monday.', '1.Have to study for toc.'),
 ('PES1201701160', 'BHARATH MANOHARAN', 4, 'B', '1999-05-28', 'M', 90, 90, 'EC', 'PES1201701160', '		1.DAA Assignment On Friday.', '1.LAB ON SATURDAY'),

@@ -102,7 +102,7 @@
             
                     session_start();
                     extract($_POST);
-                    $str="SELECT Day,Period1,Period2,Period3,Period4,Period5,Period6 FROM time_table where SECTION =(SELECT SECTION FROM student WHERE SSN=\"".$_SESSION['uname']."\")";
+                    $str="SELECT Day,Period1,Period2,Period3,Period4,Period5,Period6 FROM time_table where SECTION =(SELECT SECTION FROM student WHERE SSN=\"".$_SESSION['uname']."\") ORDER BY FIELD (Day, 'FRIDAY', 'THURSDAY', 'WEDNESDAY', 'TUESDAY', 'MONDAY')";
                     $sql = mysqli_query($db, $str) ;
                     
                     echo "<script type='text/javascript'>
