@@ -138,7 +138,7 @@ body
 
 
 <div class="container">
-  <h1 align = "center" style="padding:50px"><?php echo $ssn;?></h1>
+  <h1 align = "center" style="padding:50px;color:white"><?php echo $ssn;?></h1>
   
   
   <div class="row">
