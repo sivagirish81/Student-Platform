@@ -6,6 +6,9 @@
     $arr = explode(",",$ssn_course);
     $ssn = $arr[0];
     $course_id = $arr[1];
+    $isa1 = $arr[2];
+    $isa2 = $arr[3];
+    $esa = $arr[4];
 
 
     $db = mysqli_connect("localhost:3306","root","","student_platform");
@@ -159,21 +162,23 @@ body
             <li class="list-group-item needed_padding" >ISA 1</li>
             <li class="list-group-item needed_padding" >ISA 2</li>
             <li class="list-group-item needed_padding" >ESA</li>
+            <!--
             <li class="list-group-item needed_padding" >Scaling</li>
             <li class="list-group-item needed_padding" >SGPA</li>
-            <li class="list-group-item needed_padding" >CGPA</li>
+            <li class="list-group-item needed_padding" >CGPA</li>-->
         </ul> 
     </div>
   
     <div class="col-sm-3" >
         <form action="coe5.php" method="post">
             <ul  class="list-group" > 
-                <li class="list-group-item" ><input type="text" name="isa1"></li>
-                <li class="list-group-item" ><input type="text" name="isa2"></li>
-                <li class="list-group-item" ><input type="text" name="esa"></li>
+                <li class="list-group-item" ><input type="text" name="isa1" value="<?php echo $isa1?>"></li>
+                <li class="list-group-item" ><input type="text" name="isa2" value="<?php echo $isa2?>"></li>
+                <li class="list-group-item" ><input type="text" name="esa" value="<?php echo $esa?>"></li>
+                <!--
                 <li class="list-group-item" ><input type="text" name="scaling"></li>
                 <li class="list-group-item" ><input type="text" name="sgpa"></li>
-                <li class="list-group-item" ><input type="text" name="cgpa"></li>
+                <li class="list-group-item" ><input type="text" name="cgpa"></li>-->
 
 
             </ul> 

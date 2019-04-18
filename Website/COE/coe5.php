@@ -16,16 +16,16 @@
     //echo $stmt1;
     $stmt2 = "update exam_department set ISA_2_MARKS = '".$isa2."'where SSN='".$ssn."' and Course_ID='".$course_id."';";
     $stmt3 = "update exam_department set ESA_MARKS = '".$esa."'where SSN='".$ssn."' and Course_ID='".$course_id."';";
-    $stmt4 = "update exam_department set Scaling = '".$scaling."'where SSN='".$ssn."' and Course_ID='".$course_id."';";
-    $stmt5 = "update exam_department set SGPA = '".$sgpa."'where SSN='".$ssn."' and Course_ID='".$course_id."';";
-    $stmt6 = "update exam_department set CGPA = '".$cgpa."'where SSN='".$ssn."' and Course_ID='".$course_id."';";
+    #$stmt4 = "update exam_department set Scaling = '".$scaling."'where SSN='".$ssn."' and Course_ID='".$course_id."';";
+    #$stmt5 = "update exam_department set SGPA = '".$sgpa."'where SSN='".$ssn."' and Course_ID='".$course_id."';";
+    #$stmt6 = "update exam_department set CGPA = '".$cgpa."'where SSN='".$ssn."' and Course_ID='".$course_id."';";
     
     $sql = mysqli_query($db, $stmt1 );
     $sql = mysqli_query($db, $stmt2);
     $sql = mysqli_query($db, $stmt3 );
-    $sql = mysqli_query($db, $stmt4 );
-    $sql = mysqli_query($db, $stmt5 );
-    $sql = mysqli_query($db, $stmt6 );
+    #$sql = mysqli_query($db, $stmt4 );
+    #$sql = mysqli_query($db, $stmt5 );
+    #$sql = mysqli_query($db, $stmt6 );
     
 ?>
 
@@ -161,9 +161,10 @@ body
             <li class="list-group-item" >ISA 1</li>
             <li class="list-group-item" >ISA 2</li>
             <li class="list-group-item" >ESA</li>
+            <!--
             <li class="list-group-item" >Scaling</li>
             <li class="list-group-item" >SGPA</li>
-            <li class="list-group-item" >CGPA</li>
+            <li class="list-group-item" >CGPA</li>-->
         </ul> 
     </div>
   
@@ -172,9 +173,9 @@ body
             <li class="list-group-item" ><?php echo $isa1; ?></li>
             <li class="list-group-item" ><?php echo $isa2; ?></li>
             <li class="list-group-item" ><?php echo $esa; ?></li>
-            <li class="list-group-item" ><?php echo $scaling; ?></li>
-            <li class="list-group-item" ><?php echo $sgpa; ?></li>
-            <li class="list-group-item" ><?php echo $cgpa; ?></li>
+            <!--<li class="list-group-item" ><?php #echo $scaling; ?></li>
+            <li class="list-group-item" ><?php #echo $sgpa; ?></li>
+            <li class="list-group-item" ><?php #echo $cgpa; ?></li>-->
 
 
         </ul> 
@@ -185,7 +186,7 @@ body
 
   <div align="center">
     <form action="coe4.php" method="post">
-  <button type="submit" class="btn btn-primary" name="ssn_course" value="<?php echo $ssn;?>,<?php echo $course_id;?>"  > Change </button>
+    <button type="submit" class="btn btn-primary" name="ssn_course" value="<?php echo $ssn;?>,<?php echo $course_id;?>,<?php echo $isa1?>,<?php echo $isa2?>,<?php echo $esa?>"  > Change </button>
 </form>    
 </div>
 

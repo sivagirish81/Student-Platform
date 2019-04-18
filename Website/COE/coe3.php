@@ -150,9 +150,10 @@ body
             <li class="list-group-item" >ISA 1</li>
             <li class="list-group-item" >ISA 2</li>
             <li class="list-group-item" >ESA</li>
+            <!--
             <li class="list-group-item" >Scaling</li>
             <li class="list-group-item" >SGPA</li>
-            <li class="list-group-item" >CGPA</li>
+            <li class="list-group-item" >CGPA</li>-->
         </ul> 
     </div>
   
@@ -161,9 +162,10 @@ body
             <li class="list-group-item" ><?php echo $isa1; ?></li>
             <li class="list-group-item" ><?php echo $isa2; ?></li>
             <li class="list-group-item" ><?php echo $esa; ?></li>
-            <li class="list-group-item" ><?php echo $scaling; ?></li>
-            <li class="list-group-item" ><?php echo $SGPA; ?></li>
-            <li class="list-group-item" ><?php echo $CGPA; ?></li>
+            <!--
+            <li class="list-group-item" ><?php //echo $scaling; ?></li>
+            <li class="list-group-item" ><?php //echo $SGPA; ?></li>
+            <li class="list-group-item" ><?php //echo $CGPA; ?></li>-->
 
 
         </ul> 
@@ -174,7 +176,8 @@ body
 
   <div align="center">
     <form action="coe4.php" method="post">
-  <button type="submit" class="btn btn-primary" name="ssn_course" value="<?php echo $ssn;?>,<?php echo $course_id;?>"  > Change </button>
+  <!--<button type="submit" class="btn btn-primary" name="ssn_course" value="--><?php #echo $ssn;?>,<?php #echo $course_id;?><!--"  > Change </button>-->
+  <button type="submit" class="btn btn-primary" name="ssn_course" value="<?php echo $ssn;?>,<?php echo $course_id;?>,<?php echo $isa1?>,<?php echo $isa2?>,<?php echo $esa?>"  > Change </button>
 </form>    
 </div>
 
