@@ -91,7 +91,7 @@
 
 
         <div class="out"><table class='My-Table'><?php 
-        $sql = mysqli_query($db, "SELECT DISTINCT stud.SSN,stud.NAME,exam_department.CGPA,phone_number.Mobile_Number FROM student stud INNER JOIN exam_department ON stud.SSN=exam_department.SSN INNER JOIN phone_number ON stud.SSN=phone_number.SSN where exam_department.CGPA>=9");
+        $sql = mysqli_query($db, "SELECT DISTINCT stud.SSN,stud.NAME,exam_department.CGPA,phone_number.Mobile_Number FROM student stud INNER JOIN exam_department ON stud.SSN=exam_department.SSN INNER JOIN phone_number ON stud.SSN=phone_number.SSN where exam_department.CGPA>=9 Order BY exam_department.CGPA ");
         echo "<script type='text/javascript'>
                     var d=document.querySelector('.My-Table');
                     d.innerHTML=`<tr>
