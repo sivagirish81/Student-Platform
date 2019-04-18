@@ -1,6 +1,5 @@
-<?php
-    $db = mysqli_connect("localhost:3306","root","","student_platform");
-?>
+
+
 <html>
 	<head>
 		<title>Home</title>
@@ -62,21 +61,23 @@
 			  padding: 20px;
 			  height:500px;
 			  text-align:center;
+			  overflow: auto;
+			  /*height: 100%;*/
 			}
 			
+			#test{
+			padding-bottom:500px;
+			}
 			.deco{
 				text-shadow: 2px 2px #FF0000;
 				color:black;
 				}
 			
-			#stylish
-			{
-				text-align: center;
-				text-shadow: 3px 2px green;
-				font-family:Arial, Helvetica, sans-serif;
-				font-size:40px;
+			.form-group{
+				margin: auto;
+				width:30%;
 			}
-					
+			
 		</style>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -85,13 +86,14 @@
 	<body>
 		<div class="Topper">
 			<div class="Mylister">
-					<a href="Student_Home.php" class="active">Home</a>
+					<a href="Student_Home.php">Home</a>
 					<a href="Attendance.php">Attendance</a>
-					<a href="Reminders.php">Reminders</a>
-					<a href="Profiler.php">Profile</a>
-					<a href="Results.php">TOPPERS</a>
+					<a href="Reminders.html" class="active">Reminders</a>
+					<a href="Profiler.php">TOPPER</a>
+					<a href="Results.php">Results</a>
 					<a href="Stats.php">Statistics</a>
 					<a href="Text_and_Video.php">Text/Video Links</a>
+					<a href="Info.php">Info</a>
 					<a href="Time-Table.php">Time Table</a>
                     <a href="Calender_of_events.php">Calendar Of Events</a>
 			</div>
@@ -102,25 +104,48 @@
 			<div class="Notifier">
 				<div class="Trans-Container">
 					<div class="Trans-content">
-						<h1 class="deco">Notifications</h1>
-						<p id="Stylish" align="center">As if you could kill time without injuring eternity.</p>
-						<?php
-							session_start();
-							extract($_POST);
-							$sql=mysqli_query($db,"SELECT Notifications FROM student WHERE SSN=\"".$_SESSION['uname']."\"");
-							while ($arr=mysqli_fetch_assoc($sql))
-							{
-								echo "<script type='text/javascript'>
-										var x=document.getElementById('Stylish');
-										x.innerHTML=\"".$arr['Notifications']."\"</script>";
-							}
-
-						?>
+						<h1 class="deco">Reminders</h1>
+						<p id="test">Some Text...</p>
+						<form action="Reminders1.php" method="post">
+							<div class="form-group">
+								<input id="submit" type="submit" name="Submitter">Insert/remove Reminders
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
-			<form id="selection-from" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        		</form>
+			
 		</div>
+		<?php
+	session_start();
+	if(!isset($_SESSION["uname"])){
+		echo "Sorry, Please login and use this page";
+		exit;
+		}
+	
+	extract($_POST);
+
+
+	$db = mysqli_connect("localhost:3306","root","","student_platform");
+
+	#echo $_SESSION["uname"];
+
+	$stmt="select Reminders from student where SSN=\"".$_SESSION["uname"]."\";";		//sql query
+   
+    $res = mysqli_query($db,$stmt);				//query object
+
+    if($res && mysqli_num_rows($res)==1)				//atleast one row and only one row
+        {
+            while($arr=mysqli_fetch_assoc($res))	
+            {	
+                echo "<script type='text/javascript'>
+                		var x=document.querySelector('#test');
+                		x.innerHTML=`<div>".$arr['Reminders']."</div>`;
+                	</script>";
+            }
+         }
+
+?>
+		
 	</body>
 </html>
