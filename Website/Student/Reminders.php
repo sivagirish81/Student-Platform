@@ -1,5 +1,3 @@
-
-
 <html>
 	<head>
 		<title>Home</title>
@@ -50,8 +48,6 @@
 			  margin: 0 auto;
 			  /*height:500px;*/
 			}
-
-
 			.Trans-container .Trans-content {
 			  position: absolute;
 			  bottom: 0;
@@ -117,54 +113,40 @@
 			</div>
 		</div>
         <?php
-
             session_start();
             if(!isset($_SESSION["uname"]))
             {
                 echo "Sorry, Please login and use this page";
                 exit;
             }
-
             $db = mysqli_connect("localhost:3306","root","","student_platform");
-
             extract($_POST);
-
             $stmt="select Reminders from student where SSN=\"".$_SESSION["uname"]."\";";		//sql query
    
             $res = mysqli_query($db,$stmt);				//query object
         
-
-
             echo "<form  id='form1' method='post'></form>";            
-
-
             if($res && mysqli_num_rows($res)==1)				//atleast one row and only one row
             {
                 while($arr=mysqli_fetch_assoc($res))	
                 {	
-
                     $reminders = explode("|",$arr['Reminders']);   
-
                     if(isset($Delete) && strlen($Delete)>0)
                     {
                         $Delete = str_replace("-"," ",$Delete);
                         
                         for($i = 0; $i<count($reminders); ++$i)
                         {
-
                             if(strcmp($reminders[$i],$Delete)==0)
                             {
                                 unset($reminders[$i]);
                                 $new_string = implode("|",$reminders);
-
                                 $stmt1 = "update student set Reminders='".$new_string."' where SSN='".$_SESSION["uname"]."';";
                                 $res1 = mysqli_query($db,$stmt1);
-
                             }
                         }   
                         
                     }
-
                     if(isset($Add) && strlen($Add)>0)
                     {
                         array_push($reminders,$Add);
@@ -172,7 +154,6 @@
                         $stmt2 = "update student set Reminders='".$new_string."' where SSN='".$_SESSION["uname"]."';";
                         $res2  = mysqli_query($db,$stmt2);                        
                     }
-
                     foreach($reminders as $reminder)
                     {
                         $reminder = str_replace(" ","-",$reminder);
@@ -186,8 +167,6 @@
                 }
              }
         
-
-
         ?>
 		
 	</body>
