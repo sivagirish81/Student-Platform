@@ -66,7 +66,7 @@
 			}
 			
 			#test{
-			padding-bottom:500px;
+			padding-bottom:100px;
 			}
 			.deco{
 				text-shadow: 2px 2px #FF0000;
@@ -88,7 +88,7 @@
 			<div class="Mylister">
 					<a href="Student_Home.php">Home</a>
 					<a href="Attendance.php">Attendance</a>
-					<a href="Reminders.html" class="active">Reminders</a>
+					<a href="Reminders.php" class="active">Reminders</a>
 					<a href="Profiler.php">TOPPER</a>
 					<a href="Results.php">Results</a>
 					<a href="Stats.php">Statistics</a>
@@ -100,52 +100,95 @@
 			<div class="top-right-corner">
 				<a href="D:\SoftwareTools\Xampp\htdocs\Student-Platform\Website\login.html"><u>Logout</u></a>
 			</div>
-		<div class="My-container">
-			<div class="Notifier">
-				<div class="Trans-Container">
-					<div class="Trans-content">
-						<h1 class="deco">Reminders</h1>
-						<p id="test">Some Text...</p>
-						<form action="Reminders1.php" method="post">
-							<div class="form-group">
-								<input id="submit" type="submit" name="Submitter">Insert/remove Remainders</input>
-							</div>
-						</form>
-					</div>
-				</div>
+		    <div class="My-container">
+			    <div class="Notifier">
+				    <div class="Trans-Container">
+					    <div class="Trans-content">
+						    <h1 class="deco">Reminders</h1>
+						    <p id="test"><br></p>
+                            <div> 
+                                <textarea rows="5" columns="150" form="form1" name="Add"></textarea>
+                                <input type="Submit" value="Add" form="form1">
+
+                            </div>
+					    </div>
+				    </div>
+			    </div>
 			</div>
-			
 		</div>
-		<?php
-	session_start();
-	if(!isset($_SESSION["uname"])){
-		echo "Sorry, Please login and use this page";
-		exit;
-		}
-	
-	extract($_POST);
+        <?php
 
-
-	$db = mysqli_connect("localhost:3306","root","","student_platform");
-
-	#echo $_SESSION["uname"];
-
-	$stmt="select Reminders from student where SSN=\"".$_SESSION["uname"]."\";";		//sql query
-   
-    $res = mysqli_query($db,$stmt);				//query object
-
-    if($res && mysqli_num_rows($res)==1)				//atleast one row and only one row
-        {
-            while($arr=mysqli_fetch_assoc($res))	
-            {	
-                echo "<script type='text/javascript'>
-                		var x=document.querySelector('#test');
-                		x.innerHTML=`<div>".$arr['Reminders']."</div>`;
-                	</script>";
+            session_start();
+            if(!isset($_SESSION["uname"]))
+            {
+                echo "Sorry, Please login and use this page";
+                exit;
             }
-         }
 
-?>
+            $db = mysqli_connect("localhost:3306","root","","student_platform");
+
+            extract($_POST);
+
+            $stmt="select Reminders from student where SSN=\"".$_SESSION["uname"]."\";";		//sql query
+   
+            $res = mysqli_query($db,$stmt);				//query object
+        
+
+
+            echo "<form  id='form1' method='post'></form>";            
+
+
+            if($res && mysqli_num_rows($res)==1)				//atleast one row and only one row
+            {
+                while($arr=mysqli_fetch_assoc($res))	
+                {	
+
+                    $reminders = explode("|",$arr['Reminders']);   
+
+                    if(isset($Delete) && strlen($Delete)>0)
+                    {
+                        $Delete = str_replace("-"," ",$Delete);
+                        
+                        for($i = 0; $i<count($reminders); ++$i)
+                        {
+
+                            if(strcmp($reminders[$i],$Delete)==0)
+                            {
+                                unset($reminders[$i]);
+                                $new_string = implode("|",$reminders);
+
+                                $stmt1 = "update student set Reminders='".$new_string."' where SSN='".$_SESSION["uname"]."';";
+                                $res1 = mysqli_query($db,$stmt1);
+
+                            }
+                        }   
+                        
+                    }
+
+                    if(isset($Add) && strlen($Add)>0)
+                    {
+                        array_push($reminders,$Add);
+                        $new_string=implode("|",$reminders);
+                        $stmt2 = "update student set Reminders='".$new_string."' where SSN='".$_SESSION["uname"]."';";
+                        $res2  = mysqli_query($db,$stmt2);                        
+                    }
+
+                    foreach($reminders as $reminder)
+                    {
+                        $reminder = str_replace(" ","-",$reminder);
+                        echo "<script type='text/javascript'>
+                            var x=document.querySelector('#test');
+                            x.innerHTML +=`<div align='left'><span><strong><big>*".$reminder." </big></strong></span>
+                            <button name='Delete' value=".$reminder." type='submit' style='float:right' form='form1'>Delete</button></div><br>`;
+                        </script>";
+                    }
+                    
+                }
+             }
+        
+
+
+        ?>
 		
 	</body>
 </html>

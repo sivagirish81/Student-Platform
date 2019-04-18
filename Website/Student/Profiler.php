@@ -71,7 +71,7 @@
             <div class="Mylister">
                     <a href="Student_Home.php">Home</a>
                     <a href="Attendance.php" >Attendance</a>
-                    <a href="Reminders.html">Reminders</a>
+                    <a href="Reminders.php">Reminders</a>
                     <a href="Profiler.php" class="active">TOPPERS</a>
                     <a href="Results.php">Results</a>
                     <a href="Stats.php">Statistics</a>
