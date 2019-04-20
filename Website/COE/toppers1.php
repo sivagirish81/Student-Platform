@@ -105,9 +105,14 @@
 					<a href="coe1.php" >Marks</a>
 					<a href="scholarships.php" >Scholarships</a>
 					<a href="toppers1.php" class="active">Toppers</a>
-					<a href="average1.php">Average</a>
+					<a href="average1.php" >Average</a>
+					<a href="time_table.php">Time Table</a>
 </div>
-            
+
+<div class="top-right-corner">
+	<a href="../login.html"><u>Logout</u></a>
+</div>
+
 <div class="container">
   <h1 align="center" style="padding-bottom:50px"> Class Toppers </h1>
 

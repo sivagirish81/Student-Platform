@@ -129,9 +129,10 @@ body
 					<a href="scholarships.php">Scholarships</a>
 					<a href="toppers1.php">Toppers</a>
 					<a href="average1.php">Average</a>
+					<a href="time_table.php">Time Table</a>
 			</div>
 			<div class="top-right-corner">
-				<a href="#"><u>Logout</u></a>
+				<a href="../login.html"><u>Logout</u></a>
             </div>
 </div>
 
@@ -174,11 +175,11 @@ body
   
   </div>
 
-  <div align="center">
+<div align="center">
     <form action="coe4.php" method="post">
-  <!--<button type="submit" class="btn btn-primary" name="ssn_course" value="--><?php #echo $ssn;?>,<?php #echo $course_id;?><!--"  > Change </button>-->
-  <button type="submit" class="btn btn-primary" name="ssn_course" value="<?php echo $ssn;?>,<?php echo $course_id;?>,<?php echo $isa1?>,<?php echo $isa2?>,<?php echo $esa?>"  > Change </button>
-</form>    
+        <!--<button type="submit" class="btn btn-primary" name="ssn_course" value="--><?php #echo $ssn;?>,<?php #echo $course_id;?><!--"  > Change </button>-->
+        <button type="submit" class="btn btn-primary" name="ssn_course" value="<?php echo $ssn;?>,<?php echo $course_id;?>,<?php echo $isa1?>,<?php echo $isa2?>,<?php echo $esa?>"  > Change </button>
+    </form>    
 </div>
 
 </div>

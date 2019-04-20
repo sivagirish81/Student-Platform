@@ -141,16 +141,17 @@ body
 					<a href="scholarships.php">Scholarships</a>
 					<a href="toppers1.php">Toppers</a>
 					<a href="average1.php">Average</a>
+					<a href="time_table.php">Time Table</a>
 			</div>
 			<div class="top-right-corner">
-				<a href="#"><u>Logout</u></a>
+				<a href="../login.html"><u>Logout</u></a>
             </div>
 </div>
 
 
 
 <div class="container">
-  <h1 align = "center" style="padding:50px"></h1>
+  <h1 align = "center" style="padding:50px;color:white"></h1>
   
   
   <div class="row">

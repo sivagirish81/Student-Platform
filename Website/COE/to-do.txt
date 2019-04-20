@@ -1,4 +1,5 @@
-*Branch stuff
+*Branch stuff - not needed as course id is unique even for cross branches.
 *CGPA and SGPA
-*Changing padding
-*Changing Time table
+*Changing padding   - Done
+*Changing Time table - Done
+*Fix logout  - Done
