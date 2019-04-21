@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2019 at 09:33 PM
+-- Generation Time: Apr 18, 2019 at 09:46 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -67,7 +67,6 @@ CREATE TABLE `attendance` (
 
 INSERT INTO `attendance` (`SSN`, `Teacher_Initials`, `Course_ID`, `Attendance`, `No_Of_Classes`) VALUES
 ('PES1201700159', 'SSS', 'UE17CS251', 100, '52'),
-('PES1201701526', 'SSS', 'UE17CS251', 100, '52'),
 ('PES1201700159', 'ND', 'UE17MA251', 100, '52'),
 ('PES1201700159', 'JR', 'UE17CS253', 97, '52'),
 ('PES1201700159', 'SVI', 'UE17CS254', 100, '52'),
@@ -76,7 +75,37 @@ INSERT INTO `attendance` (`SSN`, `Teacher_Initials`, `Course_ID`, `Attendance`, 
 ('PES1201701349', 'SSS', 'UE17CS251', 100, '52'),
 ('PES1201701349', 'ND', 'UE17MA251', 88, '52'),
 ('PES1201701349', 'PB', 'UE17CS252', 100, '52'),
-('PES1201701349', 'SVI', 'UE17CS254', 97, '52');
+('PES1201701349', 'SVI', 'UE17CS254', 97, '52'),
+('PES1201701526', 'ND', 'UE17MA251', 100, '52'),
+('PES1201701526', 'PB', 'UE17CS252', 85, '52'),
+('PES1201701526', 'SVI', 'UE17CS254', 100, '52'),
+('PES1201701526', 'JR', 'UE17CS253', 100, '52'),
+('PES1201701526', 'SSS', 'UE17CS251', 60, '52');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `calender_of_events`
+--
+
+CREATE TABLE `calender_of_events` (
+  `Date` date NOT NULL,
+  `EVENTS` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `calender_of_events`
+--
+
+INSERT INTO `calender_of_events` (`Date`, `EVENTS`) VALUES
+('2019-04-18', 'Mahveer Jeyanthi'),
+('2019-04-20', 'Elections'),
+('2019-04-21', 'Good Friday'),
+('2019-04-22', 'Holiday'),
+('2019-04-26', 'LAST WORKING DAY'),
+('2019-04-27', 'STUDY HOLIDAY'),
+('2019-04-28', 'STUDY HOLIDAY'),
+('2019-04-29', 'STUDY HOLIDAY');
 
 -- --------------------------------------------------------
 
@@ -177,13 +206,18 @@ INSERT INTO `exam_department` (`SSN`, `Course_ID`, `ISA_1_Marks`, `ISA_2_Marks`,
 ('PES1201701349', 'UE17CS251', 36, 35, 95, 1, '10', '10'),
 ('PES1201701349', 'UE17CS252', 36, 35, 95, 1, '10', '10'),
 ('PES1201701349', 'UE17MA251', 39, 35, 95, 1, '10', '10'),
-('PES1201701349', 'UE17CS253', 39, 35, 95, 1, '10', '10'),
+('PES1201701349', 'UE17CS253', 40, 40, 98, 1, '10', '10'),
 ('PES1201701349', 'UE17CS254', 32, 35, 95, 1, '10', '10'),
 ('PES1201700159', 'UE17CS251', 30, 34, 97, 1, '9', '9'),
 ('PES1201700159', 'UE17CS252', 31, 36, 87, 1, '9', '9'),
 ('PES1201700159', 'UE17CS253', 36, 34, 95, 1, '9', '9'),
 ('PES1201700159', 'UE17CS254', 30, 36, 85, 1, '9', '9'),
-('PES1201700159', 'UE17MA251', 36, 34, 100, 1, '9', '9');
+('PES1201700159', 'UE17MA251', 36, 34, 100, 1, '9', '9'),
+('PES1201701526', 'UE17MA251', 32, 34, 95, 0, '10', '9'),
+('PES1201701526', 'UE17CS251', 36, 34, 87, 2, '10', '9'),
+('PES1201701526', 'UE17CS252', 28, 32, 88, 2, '10', '9'),
+('PES1201701526', 'UE17CS253', 36, 34, 93, 2, '10', '9'),
+('PES1201701526', 'UE17CS254', 36, 31, 93, 4, '10', '9');
 
 -- --------------------------------------------------------
 
@@ -230,6 +264,8 @@ CREATE TABLE `phone_number` (
 INSERT INTO `phone_number` (`SSN`, `Mobile_Number`, `Landline _Number`) VALUES
 ('PES1201701526', 8217496489, 42344444),
 ('PES1201700159', 8310450916, 41425086),
+('PES1201700888', 8884747765, 44556633),
+('PES1201700010', 8884747767, 44556676),
 ('PES1201701349', 9972563187, 44556677);
 
 -- --------------------------------------------------------
@@ -270,6 +306,21 @@ CREATE TABLE `resources` (
   `Teacher_Initials` char(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `resources`
+--
+
+INSERT INTO `resources` (`Course_ID`, `Text_Link`, `Video_Link`, `Teacher_Initials`) VALUES
+('UE17CS253', 'https://github.com/MuhammadBilalYar/Hadoop-On-Window/wiki/Step-by-step-Hadoop-2.8.0-installation-on-Window-10', 'https://github.com/MuhammadBilalYar/Hadoop-On-Window/wiki/Step-by-step-Hadoop-2.8.0-installation-on-Window-10', 'NSK'),
+('UE17CS254', 'https://github.com/MuhammadBilalYar/Hadoop-On-Window/wiki/Step-by-step-Hadoop-2.8.0-installation-on-Window-10', 'https://github.com/MuhammadBilalYar/Hadoop-On-Window/wiki/Step-by-step-Hadoop-2.8.0-installation-on-Window-10', 'ND'),
+('UE17CS251', 'https://www.w3schools.com/sql/', 'https://www.w3schools.com/sql/', 'PB'),
+('UE17CS252', 'https://www.geeksforgeeks.org/', 'https://www.geeksforgeeks.org/', 'SSS'),
+('UE17CS253', 'https://en.wikipedia.org/wiki/Arduino', 'https://en.wikipedia.org/wiki/Arduino', 'AR'),
+('UE17CS253', 'https://en.wikipedia.org/wiki/Theory_of_computation', 'https://en.wikipedia.org/wiki/Theory_of_computation', 'SVI'),
+('UE17MA251', 'https://www.w3schools.com/sql/', 'https://www.w3schools.com/sql/', 'NKS'),
+('UE17CS252', 'https://en.wikipedia.org/wiki/Microprocessor', 'https://en.wikipedia.org/wiki/Microprocessor', 'BP'),
+('UE17CS251', 'https://github.com/MuhammadBilalYar/Hadoop-On-Window/wiki/Step-by-step-Hadoop-2.8.0-installation-on-Window-10', 'https://www.geeksforgeeks.org/', 'NSK');
+
 -- --------------------------------------------------------
 
 --
@@ -296,13 +347,13 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`SSN`, `NAME`, `SEMESTER`, `SECTION`, `DATE_OF_BIRTH`, `GENDER`, `Class_10_Marks`, `Class_12_Marks`, `DEPARTMENT_ID`, `PASSWORD`, `Notifications`, `Reminders`) VALUES
-('PES1201700010', 'ROHAN SHARMA', 4, 'B', '1999-11-02', 'M', 95, 95, 'EC', 'PES1201700010', '1.LAB ON SATURDAY', '1.LAB ON SATURDAY'),
-('PES1201700159', 'R Siva Girish', 4, 'E', '1999-03-22', 'M', 93, 91, 'CS', 'PES1201700159', '1.Submit DBMS project on Friday.', 'Nothing To be Reminded Off'),
+('PES1201700010', 'ROHAN SHARMA', 4, 'B', '1999-11-02', 'M', 95, 95, 'EC', 'PES1201700010', '		1.DAA Assignment On Friday.', '1.LAB ON SATURDAY'),
+('PES1201700159', 'R Siva Girish', 4, 'E', '1999-03-22', 'M', 93, 91, 'CS', 'PES1201700159', '		1.DBMS Project Submission On Monday.', '|1.Have to submit DBMS Project on tuesday.|3.Need to Return Library Books.|2.Submit DAA Project on tuesday'),
 ('PES1201700569', 'Aniketh S Bhat', 4, 'D', '1999-11-02', 'M', 95, 95, 'MECH', 'PES1201700569', '1.Fluid Mechanics Assignment submission tommorow', '1.Solve Mech problems'),
-('PES1201700888', 'Varad Ganesh Rane', 4, 'E', '1999-07-10', 'M', 90, 91, 'CS', 'PES1201700888', '1.TOC Assignment on monday', '1.Have to study for toc.'),
-('PES1201701160', 'BHARATH MANOHARAN', 4, 'B', '1999-05-28', 'M', 90, 90, 'EC', 'PES1201701160', '1.LAB ON SATURDAY', '1.LAB ON SATURDAY'),
-('PES1201701349', 'Mayank Agarwal', 4, 'E', '2000-01-22', 'M', 100, 100, 'CS', 'PES1201701349', '1.Fine Techniques Assignment submission Tuesday.', '4.Enter reminder no. to be removed or add reminders<br>'),
-('PES1201701526', 'Anirudh Avadhani', 4, 'E', '1999-03-28', 'M', 95, 99, 'CS', 'PES1201701526', '1.Submit DBMS project on Friday.', '1.TOC assignment on monday');
+('PES1201700888', 'Varad Ganesh Rane', 4, 'E', '1999-07-10', 'M', 90, 91, 'CS', 'PES1201700888', '		1.DBMS Project Submission On Monday.', '1.Have to study for toc.'),
+('PES1201701160', 'BHARATH MANOHARAN', 4, 'B', '1999-05-28', 'M', 90, 90, 'EC', 'PES1201701160', '		1.DAA Assignment On Friday.', '1.LAB ON SATURDAY'),
+('PES1201701349', 'Mayank Agarwal', 4, 'E', '2000-01-22', 'M', 100, 100, 'CS', 'PES1201701349', '		1.DBMS Project Submission On Monday.', '4.Enter reminder no. to be removed or add reminders<br>'),
+('PES1201701526', 'Anirudh Avadhani', 4, 'E', '1999-03-28', 'M', 95, 99, 'CS', 'PES1201701526', '		1.DBMS Project Submission On Monday.', '1.TOC assignment on monday');
 
 -- --------------------------------------------------------
 
@@ -336,6 +387,35 @@ INSERT INTO `teacher` (`Initials`, `Name`, `Department_ID`, `Password`) VALUES
 ('SVI', 'Prof. Sangeeta VI', 'CS', 'CSSVI'),
 ('VJ', 'Prof. Vinay Joshi', 'CS', 'VJCS');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `time_table`
+--
+
+CREATE TABLE `time_table` (
+  `SEMESTER` int(2) NOT NULL,
+  `SECTION` char(2) NOT NULL,
+  `Day` varchar(18) NOT NULL,
+  `Period1` varchar(18) NOT NULL,
+  `Period2` varchar(18) NOT NULL,
+  `Period3` varchar(18) NOT NULL,
+  `Period4` varchar(18) NOT NULL,
+  `Period5` varchar(18) NOT NULL,
+  `Period6` varchar(18) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `time_table`
+--
+
+INSERT INTO `time_table` (`SEMESTER`, `SECTION`, `Day`, `Period1`, `Period2`, `Period3`, `Period4`, `Period5`, `Period6`) VALUES
+(4, 'E', 'FRIDAY', 'LA', 'LA', 'DAA', 'MPCA', 'Special Topic', 'Special Topic'),
+(4, 'E', 'MONDAY', 'DBMS', 'TOC', 'LA', 'LA', 'DAA Lab', 'DAA Lab'),
+(4, 'E', 'THURSDAY', 'DBMS', 'DAA', 'MPCA Lab', 'MPCA Lab', 'TOC', 'Minor'),
+(4, 'E', 'TUESDAY', 'MPCA', 'DAA', 'DBMS', 'LA', 'TOC', 'MPCA'),
+(4, 'E', 'WEDNESDAY', 'TOC', 'MPCA', 'DAA', 'DBMS', 'MINOR', 'MINOR');
+
 --
 -- Indexes for dumped tables
 --
@@ -354,6 +434,12 @@ ALTER TABLE `attendance`
   ADD KEY `SSN` (`SSN`),
   ADD KEY `Teacher Initials` (`Teacher_Initials`),
   ADD KEY `Course_ID` (`Course_ID`);
+
+--
+-- Indexes for table `calender_of_events`
+--
+ALTER TABLE `calender_of_events`
+  ADD PRIMARY KEY (`Date`);
 
 --
 -- Indexes for table `course`
@@ -422,6 +508,12 @@ ALTER TABLE `student`
 --
 ALTER TABLE `teacher`
   ADD PRIMARY KEY (`Initials`);
+
+--
+-- Indexes for table `time_table`
+--
+ALTER TABLE `time_table`
+  ADD PRIMARY KEY (`SEMESTER`,`SECTION`,`Day`);
 
 --
 -- Constraints for dumped tables

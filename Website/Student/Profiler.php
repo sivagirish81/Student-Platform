@@ -71,14 +71,17 @@
             <div class="Mylister">
                     <a href="Student_Home.php">Home</a>
                     <a href="Attendance.php" >Attendance</a>
-                    <a href="Reminders.html">Reminders</a>
+                    <a href="Reminders.php">Reminders</a>
                     <a href="Profiler.php" class="active">TOPPERS</a>
                     <a href="Results.php">Results</a>
                     <a href="Stats.php">Statistics</a>
                     <a href="Text_and_Video.php">Text/Video Links</a>
+                    <a href="Info.php">Info</a>
+                    <a href="Time-Table.php">Time Table</a>
+                    <a href="Calender_of_events.php">Calendar Of Events</a>
             </div>
             <div class="top-right-corner">
-                <a href="#"><u>Logout</u></a>
+                <a href="D:\SoftwareTools\Xampp\htdocs\Student-Platform\Website\login.html"><u>Logout</u></a>
             </div>
 <div class="container">
 
@@ -88,7 +91,7 @@
 
 
         <div class="out"><table class='My-Table'><?php 
-        $sql = mysqli_query($db, "SELECT DISTINCT stud.SSN,stud.NAME,exam_department.CGPA,phone_number.Mobile_Number FROM student stud INNER JOIN exam_department ON stud.SSN=exam_department.SSN INNER JOIN phone_number ON stud.SSN=phone_number.SSN where exam_department.CGPA>=9");
+        $sql = mysqli_query($db, "SELECT DISTINCT stud.SSN,stud.NAME,exam_department.CGPA,phone_number.Mobile_Number FROM student stud INNER JOIN exam_department ON stud.SSN=exam_department.SSN INNER JOIN phone_number ON stud.SSN=phone_number.SSN where exam_department.CGPA>=9 Order BY exam_department.CGPA ");
         echo "<script type='text/javascript'>
                     var d=document.querySelector('.My-Table');
                     d.innerHTML=`<tr>

@@ -1,0 +1,2 @@
+*Home_page
+*Text and video links should be taken from session variable

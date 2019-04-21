@@ -19,4 +19,10 @@
 +Please Update it.
 
 
--Please look at the queries.txt file if you are inserting any query make sure to document it in that file.
+-Please look at the Queries.txt file if you are inserting any query make sure to document it in that file.
+-Make all the changes and push it.
+-I'll do a dry run of the website to ensure that it works smoothly.
+-We'll have to design a logout page.
+-I'll do that if I have time.
+-Otherwise we'll have to go ahead without it.
+

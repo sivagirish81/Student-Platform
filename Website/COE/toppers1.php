@@ -2,11 +2,21 @@
     $db = mysqli_connect("localhost:3306","root","","student_platform");
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>toppers</title>
 
-<style>
+  <style>
+
+					
+			body
+			{
+						background-image: url("Images/paper2.jpg");
+							background-repeat: no-repeat;
+							background-size: cover;
+			}
 			.Mylister{
 					background-color: black;
 					overflow: hidden;
@@ -70,10 +80,19 @@
 				text-shadow: 2px 2px #FF0000;
 				color:black;
 				}
+			
+			#stylish
+			{
+				text-align: center;
+				text-shadow: 3px 2px green;
+				font-family:Arial, Helvetica, sans-serif;
+				font-size:40px;
+			}
 					
         </style>
         
-  <title>Send Notification</title>
+
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -82,22 +101,25 @@
 </head>
 <body>
 
-
 <div class="Mylister">
-					<a href="Teacher_HOME.html" >Home</a>
-					<a href="Attendance.php" >Attendance</a>
-					<a href="teacher1.php" class="active">Notifications</a>
-					<a href="teacher3.php">Text links and  Video links</a>
-					
+					<a href="coe1.php" >Marks</a>
+					<a href="scholarships.php" >Scholarships</a>
+					<a href="toppers1.php" class="active">Toppers</a>
+					<a href="average1.php" >Average</a>
+					<a href="time_table.php">Time Table</a>
 </div>
 
+<div class="top-right-corner">
+	<a href="../login.html"><u>Logout</u></a>
+</div>
 
 <div class="container">
-  <h1 align="center" style="padding-bottom:50px">Send Notifications</h1>
+  <h1 align="center" style="padding-bottom:50px"> Class Toppers </h1>
 
     <div style="padding-bottom:50px">
         <div class="row">
   	
+
 
         <div class="col-sm-3" >Semester <select name="semester" form="selection-from"> <?php 
         $sql = mysqli_query($db, "SELECT DISTINCT Semester FROM Student");
@@ -129,24 +151,10 @@
         </select> 
         </div>
 
-		<div>
-		
-		<?php
-		
-		?>
-		</div>
 
-         <form id="selection-from" action="teacher2.php" method="post">
-		
-		<textarea rows="20" cols="40" name="content" >
-		</textarea>
-		
-		
-		<div>
-		<input class="col-sm-3 btn btn-primary"  type=submit value="Apply">
-		</div>
+        <form id="selection-from" action="toppers2.php" method="post">
+        <input class="col-sm-3 btn btn-primary" " type=submit value="Apply">
         </form>
-		
     </div>
 
 

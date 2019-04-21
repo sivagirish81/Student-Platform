@@ -80,35 +80,47 @@
             <div class="Mylister">
                     <a href="Student_Home.php">Home</a>
                     <a href="Attendance.php" >Attendance</a>
-                    <a href="Reminders.php">Reminders</a>
+                    <a href="Reminders.html">Reminders</a>
                     <a href="Profiler.php">TOPPERS</a>
                     <a href="Results.php">Results</a>
-                    <a href="Stats.php" class="active">Statistics</a>
+                    <a href="Stats.php">Statistics</a>
                     <a href="Text_and_Video.php">Text/Video Links</a>
-                    <a href="Info.php">Info</a>
-                    <a href="Time-Table.php">Time Table</a>
+                    <a href="#" class="active">Time Table</a>
                     <a href="Calender_of_events.php">Calendar Of Events</a>
             </div>
             <div class="top-right-corner">
-                <a href="D:\SoftwareTools\Xampp\htdocs\Student-Platform\Website\login.html"><u>Logout</u></a>
+                <a href="#"><u>Logout</u></a>
             </div>
 <div class="container">
-            <h1 align="center" style="padding-bottom:50px">STATISTICS</h1>
-        <div class="out"><p id="Stylish">List of People Eligible for placements</p><table class='My-Table'><?php 
-        $sql = mysqli_query($db, "SELECT NAME,DATE_OF_BIRTH,GENDER,Class_10_Marks,Class_12_Marks FROM student where SSN in( SELECT SSN FROM exam_department where CGPA>8)") ;
+            <h1 align="center" style="padding-bottom:50px">TIME TABLE</h1>
+        <div class="out"><p id="Stylish"></p><table class='My-Table'><?php 
+        session_start();
+        extract($_POST);
+        $str="SELECT Day,Period1,Period2,Period3,Period4,Period5,Period6 FROM time_table where SECTION =(SELECT SECTION FROM student WHERE SSN=\"".$_SESSION['uname']."\")";
+        $sql = mysqli_query($db, "SELECT Day FROM time_table where SECTION =(SELECT SECTION FROM student WHERE SSN=\"".$_SESSION['uname']."\"") ;
+        $sql1 = mysqli_query($db, "SELECT Period1 FROM time_table where SECTION =(SELECT SECTION FROM student WHERE SSN=\"".$_SESSION['uname']."\"") ;
+        $sql2 = mysqli_query($db, "SELECT Period2 FROM time_table where SECTION =(SELECT SECTION FROM student WHERE SSN=\"".$_SESSION['uname']."\"") ;
+        $sql3 = mysqli_query($db, "SELECT Period3 FROM time_table where SECTION =(SELECT SECTION FROM student WHERE SSN=\"".$_SESSION['uname']."\"") ;
+        $sql4 = mysqli_query($db, "SELECT Period4 FROM time_table where SECTION =(SELECT SECTION FROM student WHERE SSN=\"".$_SESSION['uname']."\"") ;
+        $sql5 = mysqli_query($db, "SELECT Period5 FROM time_table where SECTION =(SELECT SECTION FROM student WHERE SSN=\"".$_SESSION['uname']."\"") ;
+        $sql6 = mysqli_query($db, "SELECT Period6 FROM time_table where SECTION =(SELECT SECTION FROM student WHERE SSN=\"".$_SESSION['uname']."\"") ;
+        echo $str;
         echo "<script type='text/javascript'>
                     var d=document.querySelector('.My-Table');
                     d.innerHTML=`<tr>
-                                    <th>NAME</th>
-                                    <th>DATE_OF_BIRTH</th>
-                                    <th>Gender</th>
-                                    <th>Class_10_Marks</th>
-                                    <th>Class_12_Marks</th>
-                                    <th>Tier</th>
+                                    <th>DAY</th>
+                                    <th>8:15-9:15</th>
+                                    <th>9:15-10:15</th>
+                                    <th>10:15-10:45</th>
+                                    <th>10:45-11:45</th>
+                                    <th>11:45-12:45</th>
+                                    <th>12:45-1:30</th>
+                                    <th>1:30-2:30</th>
+                                    <th>2:30-3:30</th>
                                 </tr>`;
 
                 </script>";
-        while ($arr=mysqli_fetch_array($sql, MYSQLI_ASSOC))
+        while (($arr = $sql->fetch_assoc()) && ($arr1 = $sql1->fetch_assoc()) &&($arr2 = $sql2->fetch_assoc()) &&($arr3 = $sql3->fetch_assoc()) &&($arr4 = $sql4->fetch_assoc()) &&($arr5 = $sql5->fetch_assoc()) &&($arr6 = $sql6->fetch_assoc()))
         {
             echo "<script type='text/javascript'>
                     var d=document.querySelector('.My-Table');
@@ -119,13 +131,18 @@
                     var c4=t.insertCell(3);
                     var c5=t.insertCell(4);
                     var c6=t.insertCell(5);
-                    c1.innerHTML=\"".$arr['NAME']."\";
-                    c2.innerHTML=\"".$arr['DATE_OF_BIRTH']."\";
-                    c3.innerHTML=\"".$arr['GENDER']."\";
-                    c4.innerHTML=\"".$arr['Class_10_Marks']."\";
-                    c5.innerHTML=\"".$arr['Class_12_Marks']."\";
-                    c6.innerHTML=\"Tier1\";
-
+                    var c7=t.insertCell(6);
+                    var c8=t.insertCell(7);
+                    var c9=t.insertCell(8);
+                    c1.innerHTML=\"".$arr['Day']."\";
+                    c2.innerHTML=\"".$arr1['Period1']."\";
+                    c3.innerHTML=\"".$arr2['Period2']."\";
+                    c4.innerHTML=\"SB\";
+                    c5.innerHTML=\"".$arr3['Period3']."\";
+                    c6.innerHTML=\"".$arr4['Period4']."\";
+                    c7.innerHTML=\"LB\";
+                    c8.innerHTML=\"".$arr5['Period5']."\";
+                    c9.innerHTML=\"".$arr6['Period6']."\";
                     </script>";
                   }
             

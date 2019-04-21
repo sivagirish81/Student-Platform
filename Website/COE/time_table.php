@@ -92,11 +92,11 @@
 	<body>
 		<div class="Topper">
 			<div class="Mylister">
-					<a href="coe1.php" class="active">Marks</a>
-					<a href="scholarships.php">Scholarships</a>
-					<a href="toppers1.php">Toppers</a>
-					<a href="average1.php">Average</a>
-					<a href="time_table.php">Time Table</a>
+            <a href="coe1.php">Marks</a>
+				<a href="scholarships.php">Scholarships</a>
+				<a href="toppers1.php">Toppers</a>
+				<a href="average1.php">Average</a>
+                <a href="#" class="active">Time Table</a>
 			</div>
 			<div class="top-right-corner">
 				<a href="../login.html"><u>Logout</u></a>
@@ -105,27 +105,15 @@
         
         <div class="container">
             
-            <h1 align="center" style="padding-bottom:50px;color:white">Examination Results</h1>
+            <h1 align="center" style="padding-bottom:50px;color:white">Time Table</h1>
   
 
             <div style="padding-bottom:50px">
                 <div class="row">
   	
-                    <div class="col-sm-3" >Course <select name="course" form="selection-from"> <?php 
-                        $sql = mysqli_query($db, "SELECT Course_id FROM Course");
-                        while ($row = $sql->fetch_assoc()){?>
-                        <option value="<?php echo $row['Course_id']; ?>"><?php echo $row['Course_id']; ?></option>
-                        
-                        <?php
-                    
-                        }
-                        ?>
-                        </select> 
-                    </div>
-    
 
 
-                    <div class="col-sm-3" >Semester <select name="semester" form="selection-from"> <?php 
+                    <div class="col-sm-4" align="center"><span style='color:white'>Semester </span><select name="semester" form="selection-from"> <?php 
                     $sql = mysqli_query($db, "SELECT DISTINCT Semester FROM Student");
                     while ($row = $sql->fetch_assoc()){
                         
@@ -141,7 +129,7 @@
 
     
 
-                    <div class="col-sm-3" >Section <select name="section" form="selection-from"> <?php 
+                    <div class="col-sm-4" ><span style='color:white'>Section</span> <select name="section" form="selection-from"> <?php 
                     $sql = mysqli_query($db, "SELECT DISTINCT Section FROM Student");
                     while ($row = $sql->fetch_assoc()){
                         
@@ -156,7 +144,7 @@
                     </div>
 
 
-                    <form id="selection-from" action="coe2.php" method="post">
+                    <form id="selection-from" action="time_table1.php" method="post">
                     <input class="col-sm-3 btn btn-primary" " type=submit value="Apply">
                     </form>
                 </div>
