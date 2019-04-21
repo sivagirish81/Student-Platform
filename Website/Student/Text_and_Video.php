@@ -73,56 +73,10 @@
             </div>
 <div class="container">
     
-  <h1 align="center" style="padding-bottom:50px">Examination Results</h1>
+  <h1 align="center" style="padding-bottom:50px">Anchor Teacher Resources</h1>
 
     <div style="padding-bottom:50px">
         <div class="row">
-  	
-            <div class="col-sm-3" >Course <select name="course" form="selection-from"> <?php 
-                $sql = mysqli_query($db, "SELECT Course_id FROM Course");
-                while ($row = $sql->fetch_assoc()){?>
-                <option value="<?php echo $row['Course_id']; ?>"><?php echo $row['Course_id']; ?></option>
-                
-                <?php
-            
-                }
-            ?>
-            </select> 
-            </div>
-    
-
-
-        <div class="col-sm-3" >Semester <select name="semester" form="selection-from"> <?php 
-        $sql = mysqli_query($db, "SELECT DISTINCT Semester FROM Student");
-        while ($row = $sql->fetch_assoc()){
-            
-            ?>
-            <option value="<?php echo $row['Semester']; ?>"><?php echo $row['Semester']; ?></option>
-            
-            <?php
-        
-            }
-        ?>
-        </select> 
-        </div>
-
-    
-
-        <div class="col-sm-3" >Section <select name="section" form="selection-from"> <?php 
-        $sql = mysqli_query($db, "SELECT DISTINCT Section FROM Student");
-        while ($row = $sql->fetch_assoc()){
-            
-            ?>
-            <option value="<?php echo $row['Section']; ?>"><?php echo $row['Section']; ?></option>
-            
-            <?php
-        
-            }
-        ?>
-        </select> 
-        </div>
-
-
         <form id="selection-from" action="Text_and_Video1.php" method="post">
         <input class="col-sm-3 btn btn-primary" type=submit value="Apply">
         </form>
