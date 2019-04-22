@@ -166,7 +166,7 @@
                                     <th>Course ID</th>
                                     <th>TextBooks</th>
                                     <th>Videos</th>
-                                    <th>Anchor</th>
+                                    <th>Teacher</th>
                                 </tr>`;
                                  </script>";
                             
