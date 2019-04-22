@@ -162,7 +162,7 @@
                         <h2>MRD Students:</h2> <?php
                         
                         #$stmt = "SELECT s.SSN, s.Name FROM Student as s, course_taken as ct, course as c where s.SEMESTER='".$_POST['semester']."' and s.Section ='". $_POST['section']."' and s.SSN=ct.SSn and c.course_id ='".$_POST['course']."'  and c.course_id = ct.course_id;";
-                            $stmt = "SELECT DISTINCT SSN FROM exam_department ORDER BY CGPA DESC LIMIT 5";
+                            $stmt = "SELECT DISTINCT SSN FROM exam_department where SGPA>9 ORDER BY CGPA DESC LIMIT 5";
                             
                             //print_r($stmt);
                             $sql = mysqli_query($db, $stmt);
