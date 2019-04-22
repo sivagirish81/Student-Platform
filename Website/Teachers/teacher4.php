@@ -1,5 +1,11 @@
 <?php
     $db = mysqli_connect("localhost:3306","root","","student_platform");
+    session_start();
+    if (!isset($_SESSION['uname']))
+    {
+        header("location:D:\SoftwareTools\Xampp\htdocs\Student-Platform\Website\login.html");
+    }
+
 ?>
 
 
@@ -40,27 +46,6 @@
         </select> 
         </div>
 		
-		<div>
-		
-		<div class="col-sm-3" >Initial <select name="init" form="selection-from"> <?php 
-      session_start();
-        $sql = mysqli_query($db, "SELECT Initials FROM teacher");
-        while ($row = $sql->fetch_assoc()){
-            
-            ?>
-            <option value="<?php echo $row['Initials']; ?>"><?php echo $row['Initials']; ?></option>
-            
-            <?php
-        
-            }
-        ?>
-        </select> 
-        </div>
-		
-		<?php
-		
-		?>
-		</div>
 
         <form id="selection-from" action="teacher4.php" method="post">
         <br>
@@ -77,10 +62,10 @@
         </form>
 		<?php
 			extract($_POST);
-			session_start();
+			
 			$sel="INSERT INTO resources(Course_ID,Text_Link,Video_Link,Teacher_Initials) 
 			VALUES('$section','$content1','$content2',\"".$_SESSION['uname']."\"".")";
-			echo $sel;
+			#echo $sel;
 			$res1=mysqli_query($db,$sel);
 			
 			

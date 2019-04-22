@@ -1,5 +1,12 @@
 <?php
-    $db = mysqli_connect("localhost:3306","root","","student_platform");
+	$db = mysqli_connect("localhost:3306","root","","student_platform");
+	
+    session_start();
+    if (!isset($_SESSION['uname']))
+    {
+        header("location:D:\SoftwareTools\Xampp\htdocs\Student-Platform\Website\login.html");
+	}
+	
 ?>
 
 <!DOCTYPE html>
@@ -121,26 +128,6 @@
         </select> 
         </div>
 		
-		<div class="col-sm-3" >Initial <select name="init" form="selection-from"> <?php 
-        $sql = mysqli_query($db, "SELECT Initials FROM teacher");
-        while ($row = $sql->fetch_assoc()){
-            
-            ?>
-            <option value="<?php echo $row['Initials']; ?>"><?php echo $row['Initials']; ?></option>
-            
-            <?php
-        
-            }
-        ?>
-        </select> 
-        </div>
-
-		<div>
-		
-		<?php
-		
-		?>
-		</div>
 
 
         <form id="selection-from" action="teacher4.php" method="post">

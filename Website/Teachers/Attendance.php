@@ -84,13 +84,19 @@
 </head>
 <body>
 
-<div class="Mylister">
-					<a href="Teacher_HOME.html" >Home</a>
-					<a href="Attendance.php" class="active">Attendance</a>
-					<a href="teacher1.php" >Notifications</a>
-					<a href="teacher3.php">Text links and  Video links</a>
-					
+<div class="Topper">
+            <div class="Mylister">
+                                <a href="Teacher_HOME.php" >Home</a>
+                                <a href="Attendance.php" class="active">Attendance</a>
+                                <a href="teacher1.php" >Notifications</a>
+                                <a href="teacher3.php">Text links and  Video links</a>
+                                
+            </div>
+			<div class="top-right-corner">
+				<a href="../login.html"><u>Logout</u></a>
+            </div>
 </div>
+
 
 
 <div class="container">
@@ -145,7 +151,7 @@
         </div>
 
 
-        <form id="selection-from" action="Attendance1.php" method="post">
+        <form id="selection-from" action="att_1.php" method="post">
         <input class="col-sm-3 btn btn-primary" " type=submit value="Complete list">
         </form>
 
