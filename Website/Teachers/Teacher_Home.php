@@ -1,3 +1,7 @@
+<?php
+    $db = mysqli_connect("localhost:3306","root","","student_platform");
+?>
+
 <html>
 	<head>
 		<title>Home</title>
@@ -34,7 +38,7 @@
 			{
 				border: 2px solid black;
 				padding: 400px;
-				background: url(Images/Classroom-2.jpg);
+				background: url(Classroom-2.jpg);
 				background-repeat: no-repeat;
 				background-size: cover;
 			}
@@ -65,7 +69,16 @@
 				text-shadow: 2px 2px #FF0000;
 				color:black;
 				}
-					
+
+			#Tcon
+			{text-shadow: 2px 2px #FF0000;
+				color:black;
+				font-size:30px;}
+			
+			.transcontent
+			{
+				align:center;
+			}
 		</style>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -87,11 +100,25 @@
 			<div class="Notifier">
 				<div class="Trans-Container">
 					<div class="Trans-content">
-						<h1 class="deco">Notifications</h1>
-						<p>Some Text...</p>
+						<h1 class="deco">Welcome</h1>
+						<p id="TCon"></p>
 					</div>
 				</div>
 			</div>
 		</div>
+		<?php
+		session_start();
+			$stmt="SELECT Name FROM teacher WHERE Initials=\"".$_SESSION['uname']."\"";
+			$sql=mysqli_query($db,$stmt);
+			while ($arr=mysqli_fetch_assoc($sql))
+			{
+			echo "<script type='text/javascript'>
+					var x=document.getElementById('TCon');
+					x.innerHTML=\"".$arr['Name']."\"</script>";
+			}
+					
+		?>
+		<form id="selection-from" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            </form>
 	</body>
 </html>

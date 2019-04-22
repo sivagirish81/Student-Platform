@@ -16,7 +16,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<a href="Teacher_Home.html" class="active">Home</a>
+<a href="Teacher_Home.php" class="active">Home</a>
 <div class="container">
   <h1 align="center" style="padding-bottom:50px">Send Notification</h1>
 
@@ -43,6 +43,7 @@
 		<div>
 		
 		<div class="col-sm-3" >Initial <select name="init" form="selection-from"> <?php 
+      session_start();
         $sql = mysqli_query($db, "SELECT Initials FROM teacher");
         while ($row = $sql->fetch_assoc()){
             
@@ -76,9 +77,9 @@
         </form>
 		<?php
 			extract($_POST);
-			
+			session_start();
 			$sel="INSERT INTO resources(Course_ID,Text_Link,Video_Link,Teacher_Initials) 
-			VALUES('$section','$content1','$content2','$init')";
+			VALUES('$section','$content1','$content2',\"".$_SESSION['uname']."\"".")";
 			echo $sel;
 			$res1=mysqli_query($db,$sel);
 			

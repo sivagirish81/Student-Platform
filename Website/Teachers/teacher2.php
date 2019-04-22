@@ -16,7 +16,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<a href="Teacher_Home.html" class="active">Home</a>
+<a href="Teacher_Home.php" class="active">Home</a>
 <div class="container">
   <h1 align="center" style="padding-bottom:50px">Send Notification</h1>
 

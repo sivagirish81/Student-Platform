@@ -84,7 +84,7 @@
 
 
 <div class="Mylister">
-					<a href="Teacher_HOME.html" >Home</a>
+					<a href="Teacher_Home.php" >Home</a>
 					<a href="Attendance.php" >Attendance</a>
 					<a href="teacher1.php" class="active">Notifications</a>
 					<a href="teacher3.php">Text links and  Video links</a>
