@@ -1,0 +1,73 @@
+15 Simple Queries (Integrated With Backend)
+
+Simple:
+
+COE:
+"SELECT Course_id FROM Course"
+"SELECT DISTINCT Semester FROM Student"
+"SELECT DISTINCT Section FROM Student"
+"SELECT  COURSE_ID, ISA_1_Marks, ISA_2_Marks, ESA_Marks, Scaling, SGPA, CGPA FROM exam_department where SSN='".$arr[0]."' and Course_ID='".trim($arr[2])."'
+
+Student:
+@Reminders:
+	+Selecting
+	select Reminders from student where SSN=\"".$_SESSION["uname"]."\";
+	+Updating/Setting Reminders
+	$stmt3="update student set Reminders=\"".$string."\"where SSN=\"".$_SESSION['uname']."\"";
+	+Deleting Reminders
+	$stmt4="update student set Reminders=\"".$temp."\"where SSN=\"".$_SESSION['uname']."\"";
+
+@Attendance(Self Explanatory)
+	+SELECT Course_ID FROM attendance where SSN=\"".$_SESSION['uname']."\";
+	+SELECT Attendance FROM attendance where SSN=\"".$_SESSION['uname']."\";
+	+SELECT Teacher_Initials FROM attendance where SSN=\"".$_SESSION['uname']."\";
+	+SELECT No_Of_Classes FROM attendance where SSN=\"".$_SESSION['uname']."\";
+
+@Results
+	+SELECT Course_ID FROM exam_department where SSN=\"".$_SESSION['uname']."\";
+	+SELECT ISA_1_Marks FROM exam_department where SSN=\"".$_SESSION['uname']."\";
+	+SELECT ISA_2_Marks FROM exam_department where SSN=\"".$_SESSION['uname']."\";
+	+SELECT SGPA FROM exam_department where SSN=\"".$_SESSION['uname']."\";
+
+<<<<<<< HEAD
+2 Medium Level Query (Integrated With Backend)
+=======
+Teacher:
+@Teacher1.php
+	+"update student set Notifications=\"".$content."\" where SSN=\"".$arr1['SSN']."\";";
+	
+1 Medium Level Query (Integrated With Backend)
+>>>>>>> 0c0e786dea9ac7c5a3a89d4eb359a73be5f0294c
+
+Medium:(Implemented)
+@Profiler/Toppers PAge
+	+Merging of three tables (student,exam_department,phone_number) and checking whether CGPA>=9
+	SELECT DISTINCT stud.SSN,stud.NAME,exam_department.CGPA,phone_number.Mobile_Number FROM student stud INNER JOIN exam_department ON stud.SSN=exam_department.SSN INNER JOIN phone_number ON stud.SSN=phone_number.SSN where exam_department.CGPA>=9
+
+ "SELECT DISTINCT SSN FROM exam_department ORDER BY CGPA DESC LIMIT 5";
+
+"SELECT e.SSN FROM exam_department as e, student as s WHERE s.SECTION = 'E' and s.SSN = e.SSN and s.SEMESTER='4' ORDER BY SGPA LIMIT 1";
+
+"SELECT AVG(e.SGPA) as Avg FROM exam_department as e,student as s WHERE e.SSN = s.SSN and s.Semester='".$_POST['semester']."'";
+
+"SELECT AVG(e.SGPA) as Avg FROM exam_department as e,student as s WHERE e.SSN = s.SSN and s.Section='".$_POST['section']."' and s.Semester='".$_POST['semester']."'";
+
+
+
+
+4 Complex Queries
+
+Complex:
+"SELECT DISTINCT SSN, Name FROM Student WHERE SSN in (SELECT s.SSN  FROM Student as s, course_taken as ct, course as c  WHERE s.SEMESTER= '".$_POST['semester']."' and s.Section = '". $_POST['section']."' and s.SSN=ct.SSn and c.course_id = '".$_POST['course']."' and c.course_id = ct.course_id)";
+
+<<<<<<< HEAD:Website/COE/queries.txt
+ "SELECT SSN FROM student WHERE SSN in (SELECT SSN FROM exam_department WHERE SGPA>9)";
+
+@Selecting Students with SRN Greater than some number for Placement offers
+=======
+@Selecting Students with SRN Greater than some number for Placement offers	(Implemented)
+>>>>>>> 641faf2190a0c1dbde56be93f395625cd7497a47:Website/queries.txt
+	+SELECT NAME FROM student where SSN in( SELECT SSN FROM exam_department where CGPA>8.5)
+
+@Selecting Students with attendance less than 75%
+	+SELECT DISTINCT NAME FROM student WHERE SSN IN ( SELECT SSN FROM attendance as A where A.Attendance<75)

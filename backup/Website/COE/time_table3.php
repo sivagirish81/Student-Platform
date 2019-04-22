@@ -1,5 +1,20 @@
 <?php
-    $db = mysqli_connect("localhost:3306","root","","student_platform");
+   $db = mysqli_connect("localhost:3306","root","","student_platform"); 
+
+    #print_r($_POST);
+    $a = explode(",",$_POST['sem_sec']);
+    #print_r($a);
+    unset($_POST['sem_sec']);
+
+    foreach($_POST as $key=>$value)
+    {
+        $key = explode("-",$key);
+        $str="UPDATE time_table set ".$key[0]."='".$value."' where Day='".$key[1]."' and SECTION ='".$a[1]."' and Semester='".$a[0]."';";  
+        $sql = mysqli_query($db, $str) ;        
+
+    }
+
+
 ?>
 
 
@@ -13,6 +28,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <style>
+
+                body
+                {
+                    background-image: url("Images/paper2.jpg");
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
                 .Mylister{
                         background-color: black;
                         overflow: hidden;
@@ -60,7 +82,7 @@
                 .container1
                 {
                     
-                    background: url(Images/Classroom-2.jpg);
+                    background: url(Images/paper2.jpg);
                     background-repeat: no-repeat;
                     background-size: cover;
                 }
@@ -80,19 +102,15 @@
     <body class="container1">
         <div class="Topper">
             <div class="Mylister">
-                <a href="Student_Home.php">Home</a>
-                <a href="Attendance.php" >Attendance</a>
-                <a href="Reminders.php">Reminders</a>
-                <a href="Profiler.php">TOPPERS</a>
-                <a href="Results.php">Results</a>
-                <a href="Stats.php">Statistics</a>
-                <a href="Text_and_Video.php">Text/Video Links</a>
-                <a href="Info.php">Info</a>
+                <a href="coe1.php">Marks</a>
+				<a href="scholarships.php">Scholarships</a>
+				<a href="toppers1.php">Toppers</a>
+				<a href="average1.php">Average</a>
                 <a href="#" class="active">Time Table</a>
-                <a href="Calender_of_events.php">Calendar Of Events</a>
+
             </div>
             <div class="top-right-corner">
-                <a href="../login.html"><u>Logout</u></a>
+                <a href="#"><u>Logout</u></a>
             </div>
 
             <div class="container">
@@ -102,8 +120,7 @@
             
                     session_start();
                     extract($_POST);
-                    $str="SELECT Day,Period1,Period2,Period3,Period4,Period5,Period6 FROM time_table where SECTION =(SELECT SECTION FROM student WHERE SSN=\"".$_SESSION['uname']."\") and Semester = (Select semester from student where SSN=\"".$_SESSION['uname']."\") ORDER BY FIELD (Day, 'FRIDAY', 'THURSDAY', 'WEDNESDAY', 'TUESDAY', 'MONDAY')";
-                    
+                    $str="SELECT Day,Period1,Period2,Period3,Period4,Period5,Period6 FROM time_table where SECTION ='".$a[1]."' and Semester = '".$a[0]."'  ORDER BY FIELD (Day, 'FRIDAY', 'THURSDAY', 'WEDNESDAY', 'TUESDAY', 'MONDAY')";
                     $sql = mysqli_query($db, $str) ;
                     
                     echo "<script type='text/javascript'>
@@ -145,6 +162,8 @@
                             c8.innerHTML=\"".$arr['Period5']."\";
                             c9.innerHTML=\"".$arr['Period6']."\";
                             </script>";
+
+                            #array_push($a,$arr['Day'],$arr['Period1'],$arr['Period2'],"SB",$arr['Period3'],$arr['Period4'],"LB",$arr['Period5'],$arr['Period6'],"||||");
                     }
                     
                     ?>
@@ -153,11 +172,14 @@
             </div>
 
 
-            <form id="selection-from" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            </form>
         </div>
 
-
+        <div align="center" style="position:relative; top:300px">
+            <form action="time_table2.php" method="post" id="form1">
+                <!--<button type="submit" class="btn btn-primary" name="ssn_course" value="--><?php #echo $ssn;?>,<?php #echo $course_id;?><!--"  > Change </button>-->
+                <button type="submit" class="btn btn-primary" name="sem_sec" value="<?php echo $a[0].','.$a[1];?>"> Change </button>
+            </form>    
+        </div>
 
     
 
