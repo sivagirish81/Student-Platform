@@ -80,13 +80,13 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		<div class="Topper">
+	<div class="Topper">
 			<div class="Mylister">
 					<a href="Student_Home.php">Home</a>
-					<a href="Attendance.php">Attendance</a>
-					<a href="Reminders.php" class="active">Reminders</a>
-					<a href="Profiler.php">TOPPER</a>
-					<a href="Results.php">Results</a>
+					<a href="Attendance.php" >Attendance</a>
+					<a href="Reminders.php"class="active">Reminders</a>
+					<a href="Profiler.php">TOPPERS</a>
+					<a href="Results.php">RESULTS</a>
 					<a href="Stats.php">Statistics</a>
 					<a href="Text_and_Video.php">Text/Video Links</a>
 					<a href="Info.php">Info</a>
@@ -94,8 +94,9 @@
                     <a href="Calender_of_events.php">Calendar Of Events</a>
 			</div>
 			<div class="top-right-corner">
-				<a href="D:\SoftwareTools\Xampp\htdocs\Student-Platform\Website\login.html"><u>Logout</u></a>
+				<a href="../login.html"><u>Logout</u></a>
 			</div>
+		</div>
 		    <div class="My-container">
 			    <div class="Notifier">
 				    <div class="Trans-Container">

@@ -79,13 +79,13 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		<div class="Topper">
+	<div class="Topper">
 			<div class="Mylister">
 					<a href="Student_Home.php">Home</a>
 					<a href="Attendance.php" >Attendance</a>
 					<a href="Reminders.php">Reminders</a>
-					<a href="Profiler.php">TOPPERS</a>
-					<a href="Results.php" class="active">Results</a>
+					<a href="Profiler.php" >TOPPERS</a>
+					<a href="Results.php" class="active">RESULTS</a>
 					<a href="Stats.php">Statistics</a>
 					<a href="Text_and_Video.php">Text/Video Links</a>
 					<a href="Info.php">Info</a>
@@ -95,6 +95,7 @@
 			<div class="top-right-corner">
 				<a href="../login.html"><u>Logout</u></a>
 			</div>
+		</div>
 		<div class="My-container">
 			<div class="Att-Displayer">
 			<form action="attendance.php" method="post">

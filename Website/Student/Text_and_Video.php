@@ -76,21 +76,22 @@
 </style>
 <body class="container1">
 <div class="Topper">
-            <div class="Mylister">
-                    <a href="Student_Home.php">Home</a>
-                    <a href="Attendance.php">Attendance</a>
-                    <a href="Reminders.php">Reminders</a>
-                    <a href="Profiler.php">Profile</a>
-                    <a href="Results.php">TOPPERS</a>
-                    <a href="Stats.php">Statistics</a>
-                    <a href="Text_and_Video.php" class="active">Text/Video Links</a>
-                    <a href="Info.php">Info</a>
-                    <a href="Time-Table.php">Time Table</a>
+			<div class="Mylister">
+					<a href="Student_Home.php">Home</a>
+					<a href="Attendance.php" >Attendance</a>
+					<a href="Reminders.php">Reminders</a>
+					<a href="Profiler.php" >TOPPERS</a>
+					<a href="Results.php" >RESULTS</a>
+					<a href="Stats.php" >Statistics</a>
+					<a href="Text_and_Video.php" class="active">Text/Video Links</a>
+					<a href="Info.php">Info</a>
+					<a href="Time-Table.php">Time Table</a>
                     <a href="Calender_of_events.php">Calendar Of Events</a>
-            </div>
-            <div class="top-right-corner">
-                <a href="../login.html"><u>Logout</u></a>
-            </div>
+			</div>
+			<div class="top-right-corner">
+				<a href="../login.html"><u>Logout</u></a>
+			</div>
+		</div>
 <div class="container">
     
 

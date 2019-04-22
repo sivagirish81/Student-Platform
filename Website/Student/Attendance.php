@@ -84,7 +84,7 @@
 					<a href="Student_Home.php">Home</a>
 					<a href="Attendance.php" class="active">Attendance</a>
 					<a href="Reminders.php">Reminders</a>
-					<a href="Profile.html">TOPPERS</a>
+					<a href="Profiler.php">TOPPERS</a>
 					<a href="Results.php">RESULTS</a>
 					<a href="Stats.php">Statistics</a>
 					<a href="Text_and_Video.php">Text/Video Links</a>
@@ -95,6 +95,7 @@
 			<div class="top-right-corner">
 				<a href="../login.html"><u>Logout</u></a>
 			</div>
+		</div>
 		<div class="My-container">
 			<div class="Att-Displayer">
 			<form action="attendance.php" method="post">
@@ -112,7 +113,8 @@
 					  	$sql1=mysqli_query($db,"SELECT Course_ID FROM attendance where SSN=\"".$_SESSION['uname']."\";");
 					  	$sql2=mysqli_query($db,"SELECT Attendance FROM attendance where SSN=\"".$_SESSION['uname']."\";");
 					  	$sql=mysqli_query($db,"SELECT Teacher_Initials FROM attendance where SSN=\"".$_SESSION['uname']."\";");
-					  	$sql3=mysqli_query($db,"SELECT No_Of_Classes FROM attendance where SSN=\"".$_SESSION['uname']."\";");
+						$sql3=mysqli_query($db,"SELECT No_Of_Classes FROM attendance where SSN=\"".$_SESSION['uname']."\";");
+						  
 					  	while (($row1 = $sql1->fetch_assoc()) && ($row2 = $sql2->fetch_assoc()) && ($row = $sql->fetch_assoc()) && ($row3 = $sql3->fetch_assoc()))
 					  	{
 					  		echo "<script type='text/javascript'>
